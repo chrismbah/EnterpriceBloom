@@ -30,7 +30,7 @@ const AboutYouForm = () => {
         <div className="w-full flex flex-col gap-[8px]">
           <label htmlFor="password" className="font-semibold">
             Business Name{" "}
-            <span className="text-[18px] leading-[21.78px] text-neutral-700">
+            <span className=" text-neutral-700">
               (Optional)
             </span>
           </label>
