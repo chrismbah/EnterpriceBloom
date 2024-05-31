@@ -25,7 +25,7 @@ export const OnboardingSlider = () => {
             <img
               src={img}
               alt={title}
-              className="w-[250px] h-[250px] object-cover "
+              className="w-[300px] h-[250px] object-cover "
             />
           </div>
           <div className="flex items-center flex-col justify-center w-full gap-[12px] ">

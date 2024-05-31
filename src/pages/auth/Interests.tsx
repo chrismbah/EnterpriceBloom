@@ -16,7 +16,7 @@ const Interests = () => {
   return (
     <div className="w-[90%]">
       <div className="mb-[16px] w-full ">
-        <h1 className="font-bold text-3xl mb-[5px] ">Create your account</h1>
+        <h1 className="font-bold text-3xl mb-[5px] ">Let's get started</h1>
         <p className="font-semibold text-lg text-neutral-800 ">
           Pick Marketing topics you’ll like to see in your home feed
         </p>

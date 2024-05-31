@@ -14,11 +14,11 @@ const OnboardingLayout = () => {
         <img
           src={logo}
           alt="Entreprise Bloom"
-          className="w-[210px] h-[56px] object-cover"
+          className="w-[230px] h-[56px] object-cover"
         />
         <OnboardingSlider />
       </div>
-      <div className="form-section h-screen overflow-y-auto hide-scrollbar overflow-x-hidden w-[65%] flex flex-col pt-[40px] pb-10 px-[50px]">
+      <div className="form-section h-screen overflow-y-auto hide-scrollbar overflow-x-hidden w-[65%] flex flex-col pt-[80px] pb-[50px] px-[50px]">
         <Outlet />
       </div>
     </div>
