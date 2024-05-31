@@ -15,7 +15,7 @@ export const OnboardingSlider = () => {
     slidesToScroll: 1,
   };
   return (
-    <Slider {...settings} className="h-[584px] w-[436px]">
+    <Slider {...settings} className="h-[384px] w-[336px]">
       {onboardingSlides.map(({ img, title, desc }, i) => (
         <div
           key={i}
@@ -25,17 +25,14 @@ export const OnboardingSlider = () => {
             <img
               src={img}
               alt={title}
-              className="w-[300px] h-[300px] object-cover "
+              className="w-[250px] h-[250px] object-cover "
             />
           </div>
-
           <div className="flex items-center flex-col justify-center w-full gap-[12px] ">
-            <h1 className="font-bold text-[40px] leading-[48px] text-center text-white">
+            <h1 className="font-bold text-2xl text-center text-white">
               {title}
             </h1>
-            <p className="font-medium text-[18px] leading-[28px] text-center text-[#F8D4D2] ">
-              {desc}
-            </p>
+            <p className="font-medium text-center text-[#F8D4D2] text-sm">{desc}</p>
           </div>
         </div>
       ))}
