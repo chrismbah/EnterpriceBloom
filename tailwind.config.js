@@ -1,6 +1,6 @@
+/* eslint-disable no-undef */
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     colors: {
       white: "#ffffff",
@@ -52,11 +52,11 @@ export default {
     function ({ addUtilities }) {
       addUtilities({
         ".hide-scrollbar": {
-          "-ms-overflow-style": "none" /* IE and Edge */,
-          "scrollbar-width": "none" /* Firefox */,
+          "-ms-overflow-style": "none",
+          "scrollbar-width": "none",
         },
         ".hide-scrollbar::-webkit-scrollbar": {
-          display: "none" /* Chrome, Safari and Opera */,
+          display: "none",
         },
       });
     },
