@@ -20,7 +20,6 @@ export const interests = [
   "Artificial Inteliigence",
   "Disruptive Marketing",
   "Green Marketing",
-  "Email Marketing",
   "Neuromarketing",
   "Market Research",
   "AI Integration",
