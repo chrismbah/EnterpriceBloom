@@ -29,7 +29,7 @@ export const OnboardingSlider = () => {
             />
           </div>
           <div className="flex items-center flex-col justify-center w-full gap-[12px] ">
-            <h1 className="font-bold text-2xl text-center text-white">
+            <h1 className="font-bold text-2xl tracking-[0.5px] text-center text-white">
               {title}
             </h1>
             <p className="font-medium text-center text-[#F8D4D2] text-sm">{desc}</p>
