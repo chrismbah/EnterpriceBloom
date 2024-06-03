@@ -8,7 +8,7 @@ const OnboardingLayout = () => {
   return (
     <div className="onboarding-layout flex min-h-screen w-screen overflow-x-hidden ">
       <div
-        className="slider-section w-[35%] bg-primary-500 min-h-screen z-10
+        className="slider-section w-[40%] bg-primary-500 min-h-screen z-10
           lg:flex items-center flex-col justify-center"
       >
         <img
@@ -18,7 +18,8 @@ const OnboardingLayout = () => {
         />
         <OnboardingSlider />
       </div>
-      <div className="form-section h-screen overflow-y-auto hide-scrollbar overflow-x-hidden w-[65%] flex flex-col pt-[80px] pb-[50px] px-[50px]">
+      <div className="form-section h-screen overflow-y-auto hide-scrollbar overflow-x-hidden 
+        w-[60%] flex flex-col pt-[68px] pb-[45px] px-[50px]">
         <Outlet />
       </div>
     </div>
