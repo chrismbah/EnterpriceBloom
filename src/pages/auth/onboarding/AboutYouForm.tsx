@@ -3,7 +3,7 @@ const AboutYouForm = () => {
   return (
     <div className="w-full flex flex-col gap-[40px] items-center">
       <div className="w-full flex flex-col gap-6 items-center">
-        <div className="w-full flex flex-col gap-[8px]">
+        <div className="w-full flex flex-col gap-2">
           <label htmlFor="full-name" className="font-semibold">
             Full Name
           </label>
@@ -11,24 +11,24 @@ const AboutYouForm = () => {
             placeholder="Enter Full Name"
             id="full-name"
             type="text"
-            className="w-full border-[1.5px] rounded-[8px] border-[#B8C5CA] h-[30px] px-[20px] py-[24px] 
-            placeholder:font-medium"
+            className="w-full border-[1.5px] rounded-[8px] border-[#B8C5CA] h-12 py-3 px-4 
+            placeholder:font-medium placeholder:text-[#B8C5CA] placeholder:text-sm"
           />
         </div>{" "}
         <div className="w-full flex flex-col gap-[8px]">
-          <label htmlFor="email" className="font-semibold">
+          <label htmlFor="phoneNumber" className="font-semibold">
             Phone Number
           </label>
           <input
             placeholder="Phone Number"
-            id="phone-number"
+            id="phoneNumber"
             type="text"
-            className="w-full border-[1.5px] rounded-[8px] border-[#B8C5CA] h-[30px] px-[20px] py-[24px] 
-            placeholder:font-medium"
+            className="w-full border-[1.5px] rounded-[8px] border-[#B8C5CA] h-12 py-3 px-4 
+            placeholder:font-medium placeholder:text-[#B8C5CA] placeholder:text-sm"
           />
         </div>{" "}
         <div className="w-full flex flex-col gap-[8px]">
-          <label htmlFor="password" className="font-semibold">
+          <label htmlFor="businessName" className="font-semibold">
             Business Name{" "}
             <span className=" text-neutral-700">
               (Optional)
@@ -36,22 +36,22 @@ const AboutYouForm = () => {
           </label>
           <input
             placeholder="Enter Business Name"
-            id="business-name"
-            type="business-name"
-            className="w-full border-[1.5px] rounded-[8px] border-[#B8C5CA] h-[30px] px-[20px] py-[24px] 
-            placeholder:font-medium"
+            id="businessName"
+            type="text"
+            className="w-full border-[1.5px] rounded-[8px] border-[#B8C5CA] h-12 py-3 px-4 
+            placeholder:font-medium placeholder:text-[#B8C5CA] placeholder:text-sm"
           />
         </div>{" "}
         <div className="w-full flex flex-col gap-[8px]">
-          <label htmlFor="password" className="font-semibold">
+          <label htmlFor="dateOfBirth" className="font-semibold">
             Date of Birth
           </label>
           <input
             placeholder="eg. 01-01-2009"
-            id="date-of-birth"
-            type="date-of-birth"
-            className="w-full border-[1.5px] rounded-[8px] border-[#B8C5CA] h-[30px] px-[20px] py-[24px] 
-            placeholder:font-medium"
+            id="dateOfBirth"
+            type="date"
+            className="w-full border-[1.5px] rounded-[8px] border-[#B8C5CA] h-12 py-3 px-4 
+            placeholder:font-medium placeholder:text-[#B8C5CA] placeholder:text-sm"
           />
         </div>
       </div>

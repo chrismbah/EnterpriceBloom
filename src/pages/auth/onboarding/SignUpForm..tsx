@@ -1,23 +1,49 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import googleIcon from "../../assets/svg/google.svg";
-import facebookIcon from "../../assets/svg/facebook.svg";
+import googleIcon from "../../../assets/icons/google.svg";
+import facebookIcon from "../../../assets/icons/facebook.svg";
+import { ArrowDownIcon } from "../../../assets/icons/ArrowDownIcon";
+import { countries } from "../../../data/countries";
 const SignUpForm = () => {
+  // const countries: country[] = useCountries();
+  const [selectedCountry, setSelectedCountry] = useState("");
+
+  const handleCountryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedCountry(e.target.value);
+  };
   return (
     <div className="w-full flex flex-col gap-8 items-center">
       <div className="w-full flex flex-col gap-4 items-center">
-        <div className="w-full flex flex-col gap-[8px]">
+        <div className="w-full flex flex-col gap-2">
           <label htmlFor="country" className="font-semibold">
-            Country
+            Select Your Country
           </label>
-          <input
-            placeholder="Select Country"
-            id="country"
-            type="text"
-            className="w-full border-[1.5px] rounded-[8px] border-[#B8C5CA] h-[30px] px-[20px] py-[24px] 
-            placeholder:font-medium"
-          />
+          <div className="relative w-full">
+            <select
+              id="country"
+              value={selectedCountry}
+              onChange={handleCountryChange}
+              className={`w-full h-12 px-4 py-3 border border-[#B8C5CA] rounded-lg appearance-none ${
+                selectedCountry === ""
+                  ? "text-[#B8C5CA] font-medium text-sm"
+                  : "text-black"
+              }`}
+            >
+              <option value="" disabled selected hidden>
+                Select Your Country
+              </option>
+              {countries.map(({ country, flag, code }) => (
+                <option className="text-black" key={code} value={code}>
+                  <img src={flag} alt={code} /> {country}
+                </option>
+              ))}
+            </select>
+            <div className="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none">
+              <ArrowDownIcon />
+            </div>
+          </div>
         </div>{" "}
-        <div className="w-full flex flex-col gap-[8px]">
+        <div className="w-full flex flex-col gap-2">
           <label htmlFor="email" className="font-semibold">
             Email Address
           </label>
@@ -25,11 +51,11 @@ const SignUpForm = () => {
             placeholder="Email Address"
             id="email"
             type="text"
-            className="w-full border-[1.5px] rounded-[8px] border-[#B8C5CA] h-[30px] px-[20px] py-[24px] 
-            placeholder:font-medium"
+            className="w-full border-[1.5px] rounded-[8px] border-[#B8C5CA] h-12 py-3 px-4 
+            placeholder:font-medium placeholder:text-[#B8C5CA] placeholder:text-sm"
           />
         </div>{" "}
-        <div className="w-full flex flex-col gap-[8px]">
+        <div className="w-full flex flex-col gap-2">
           <label htmlFor="password" className="font-semibold">
             Password
           </label>
@@ -37,8 +63,8 @@ const SignUpForm = () => {
             placeholder="Select Password"
             id="password"
             type="password"
-            className="w-full border-[1.5px] rounded-[8px] border-[#B8C5CA] h-[30px] px-[20px] py-[24px] 
-            placeholder:font-medium"
+            className="w-full border-[1.5px] rounded-[8px] border-[#B8C5CA] h-12 py-3 px-4 
+            placeholder:font-medium placeholder:text-[#B8C5CA] placeholder:text-sm"
           />
         </div>
       </div>

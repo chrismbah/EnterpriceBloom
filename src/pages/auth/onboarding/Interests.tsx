@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { interests } from "../../data/interests";
+import { interests } from "../../../data/interests";
 import { Link } from "react-router-dom";
 const Interests = () => {
   const [selectedInterests, setSelectedInterests] = useState<string[]>([]);
@@ -17,7 +17,7 @@ const Interests = () => {
     <div className="w-[90%]">
       <div className="mb-[16px] w-full ">
         <h1 className="font-bold text-3xl mb-[5px] ">Let's get started</h1>
-        <p className="font-semibold text-lg text-neutral-800 ">
+        <p className="font-semibold text-[1.1rem] leading-[1.5rem] text-neutral-800 ">
           Pick Marketing topics you’ll like to see in your home feed
         </p>
       </div>
