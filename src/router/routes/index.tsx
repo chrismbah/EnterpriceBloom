@@ -1,6 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
 import OnboardingLayout from "../../layout/OnboardingLayout";
 import Login from "../../pages/auth/Login";
+import ForgotPassword from "../../pages/auth/ForgotPassword";
 import { onboardingRoutes } from "./onboardingRoutes";
 export interface IRoutes {
   path: string;
@@ -19,6 +20,11 @@ export const routes: IRoutes[] = [
   {
     path: "/login",
     element: <Login />,
+    authGuard: false,
+  },
+  {
+    path: "/forgot-password",
+    element: <ForgotPassword />,
     authGuard: false,
   },
 ];
