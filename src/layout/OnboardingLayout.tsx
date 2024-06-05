@@ -1,9 +1,6 @@
-import {
-  Outlet,
-} from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import logo from "../assets/logo.png";
-import { OnboardingSlider } from "../components/OnboardingSlider";
-
+import { OnboardingSlider } from "../components/carousel/OnboardingSlider";
 const OnboardingLayout = () => {
   return (
     <div className="onboarding-layout flex min-h-screen w-screen overflow-x-hidden ">
@@ -18,8 +15,10 @@ const OnboardingLayout = () => {
         />
         <OnboardingSlider />
       </div>
-      <div className="form-section h-screen overflow-y-auto hide-scrollbar overflow-x-hidden 
-        w-[60%] flex flex-col pt-[68px] pb-[45px] px-[50px]">
+      <div
+        className="h-screen overflow-y-auto hide-scrollbar overflow-x-hidden 
+        w-[60%] flex flex-col pt-[68px] pb-[45px] px-[50px]"
+      >
         <Outlet />
       </div>
     </div>
