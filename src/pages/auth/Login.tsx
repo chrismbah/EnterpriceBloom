@@ -1,5 +1,5 @@
 import LoginForm from "./LoginForm";
-import bg from "../../assets/svg/login_bg.svg";
+import bg from "../../assets/svg/login/login_bg.svg";
 const Login = () => {
   return (
     <div className="w-full overflow-hidden min-h-screen flex items-center justify-center relative bg-gradient-to-r from-[#DA281C] to-[#74150F]">
