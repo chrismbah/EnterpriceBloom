@@ -1,7 +1,7 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { onboardingSlides } from "../data/onboarding";
+import { onboardingSlides } from "../../data/onboarding";
 export const OnboardingSlider = () => {
   const settings = {
     dots: false,
