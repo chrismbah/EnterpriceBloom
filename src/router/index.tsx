@@ -1,12 +1,11 @@
-import { Suspense } from "react";
+import { Fragment } from "react";
 import { RouteObject, createBrowserRouter } from "react-router-dom";
 import { routes, IRoutes } from "./routes";
-import AppLoader from "../shared/AppLoader";
 const createRouteElements = (route: IRoutes): RouteObject => {
   const { path, element, children } = route;
   return {
     path,
-    element: <Suspense fallback={<AppLoader />}>{element}</Suspense>,
+    element: <Fragment>{element}</Fragment>,
     children: children ? children.map(createRouteElements) : undefined,
   };
 };
