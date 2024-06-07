@@ -4,12 +4,7 @@ import AboutYou from "../../pages/auth/onboarding/AboutYou";
 import Interests from "../../pages/auth/onboarding/Interests";
 export const onboardingRoutes: IRoutes[] = [
   {
-    path: "",
-    element: <SignUp />,
-    authGuard: false,
-  },
-  {
-    path: "register",
+    path: "signup",
     element: <SignUp />,
     authGuard: false,
   },
