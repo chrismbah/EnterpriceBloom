@@ -1,8 +1,10 @@
 /* eslint-disable react-refresh/only-export-components */
 import OnboardingLayout from "../../layout/OnboardingLayout";
+import MainLayout from "../../layout/MainLayout";
 import Login from "../../pages/auth/Login";
 import ForgotPassword from "../../pages/auth/ForgotPassword";
 import { onboardingRoutes } from "./onboardingRoutes";
+import { mainRoutes } from "./mainRoutes";
 export interface IRoutes {
   path: string;
   element: JSX.Element;
@@ -13,6 +15,12 @@ export interface IRoutes {
 export const routes: IRoutes[] = [
   {
     path: "/",
+    element: <MainLayout />,
+    authGuard: false,
+    children: mainRoutes,
+  },
+  {
+    path: "/onboarding",
     element: <OnboardingLayout />,
     authGuard: false,
     children: onboardingRoutes,
