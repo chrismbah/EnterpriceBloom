@@ -4,12 +4,19 @@ import { Link } from "react-router-dom";
 const Interests = () => {
   const [selectedInterests, setSelectedInterests] = useState<string[]>([]);
 
+  // This function is responsible for adding or removing an interest from the
+  // selectedInterests array based on whether the interest is already selected
+  // or not. The interest is added if it's not in the array, and removed if
+  // it is.
   const handleSelectInterest = (interest: string) => {
+    // Check if the interest is already selected
     if (selectedInterests.includes(interest)) {
+      // If it is, remove it from the array
       setSelectedInterests(
         selectedInterests.filter((item: string) => item !== interest)
       );
     } else {
+      // If it's not, add it to the array
       setSelectedInterests([...selectedInterests, interest]);
     }
   };
