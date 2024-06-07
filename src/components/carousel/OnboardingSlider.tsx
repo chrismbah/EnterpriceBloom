@@ -3,19 +3,19 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { onboardingSlides } from "../../data/onboarding";
 export const OnboardingSlider = () => {
-  const settings = {
+  const config = {
     dots: false,
     arrows: false,
     fade: true,
     infinite: true,
     autoplay: true,
     speed: 300,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 2000,
     slidesToShow: 1,
     slidesToScroll: 1,
   };
   return (
-    <Slider {...settings} className="h-[384px] w-[336px]">
+    <Slider {...config} className="h-[384px] w-[336px]">
       {onboardingSlides.map(({ img, title, desc }, i) => (
         <div
           key={i}
