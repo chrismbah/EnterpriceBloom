@@ -1,5 +1,5 @@
 import ForgotPasswordForm from "./ForgotPasswordForm";
-import logo from "../../assets/logo_2.png";
+import logo from "../../assets/logo_white.png";
 import { Link } from "react-router-dom";
 import instagram from "../../assets/svg/instagram_white.svg";
 import x from "../../assets/svg/x_white.svg";

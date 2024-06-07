@@ -1,6 +1,5 @@
 import { FC } from "react";
 import message from "../../assets/svg/new_message.svg";
-
 type PasswordResetModalProps = {
   isOpen: boolean;
   onClose: () => void;

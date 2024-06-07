@@ -7,10 +7,15 @@ import {
   ForgotPasswordFormData,
   forgotPasswordSchema,
 } from "../../schema/auth/forgotPassword";
+import { useNavigate } from "react-router-dom";
 
 const ForgotPasswordForm = () => {
+  const navigate = useNavigate()
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const closeModal = () => setIsModalOpen(false);
+  const closeModal = () =>{
+    setIsModalOpen(false);
+    navigate("/login")
+  }
 
   const {
     register,
