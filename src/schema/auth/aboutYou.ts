@@ -16,13 +16,25 @@ export const aboutYouSchema = yup
     businessName: yup.string(),
     dateOfBirth: yup
       .date()
+      .transform((value, originalValue) =>
+        originalValue === "" ? null : value
+      )
       .required("Enter your date of birth")
       .min(
         new Date(1900, 0, 1),
         "Date of birth cannot be before January 1, 1900"
       )
       .max(new Date(), "Please input a valid date of birth")
-      .required("Please input a valid date"),
+      .test(
+        "min-date",
+        "Date of birth cannot be before January 1, 1900",
+        (value) => value && value >= new Date(1900, 0, 1)
+      )
+      .test(
+        "max-date",
+        "Please input a valid date of birth",
+        (value) => value && value <= new Date()
+      ),
   })
   .required();
 

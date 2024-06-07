@@ -27,7 +27,7 @@ const SignUpForm = () => {
 
   const onSubmit: SubmitHandler<SignupFormData> = (data) => {
     console.log(data);
-    navigate("/about-you");
+    navigate("/onboarding/about-you");
   };
 
   return (

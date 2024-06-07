@@ -20,7 +20,7 @@ const AboutYouForm = () => {
 
   const onSubmit: SubmitHandler<AboutYouFormData> = (data) => {
     console.log(data);
-    navigate("/interests")
+    navigate("/onboarding/interests")
   };
 
   return (
