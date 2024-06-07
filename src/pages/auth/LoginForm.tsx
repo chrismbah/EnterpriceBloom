@@ -4,8 +4,10 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { loginSchema, LoginFormData } from "../../schema/auth/login";
 import { ErrorMessage } from "../../components/form/ErrorMessage";
+import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
+  const navigate = useNavigate()
   const {
     register,
     handleSubmit,
@@ -16,6 +18,7 @@ const LoginForm = () => {
 
   const onSubmit: SubmitHandler<LoginFormData> = (data) => {
     console.log(data);
+    navigate("/")
   };
   return (
     <form

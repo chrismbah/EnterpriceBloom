@@ -37,7 +37,7 @@ const Interests = () => {
         ))}
       </div>
       <Link
-        to="/"
+        to="/forgot-password"
         className="w-full block place-content-center font-bold bg-primary-500 text-white rounded-[8px] h-[52px] p-[8px] text-center "
       >
         Go to Feed

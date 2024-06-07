@@ -6,8 +6,10 @@ import {
 } from "../../../schema/auth/aboutYou";
 import FormInput from "../../../components/form/FormInput";
 import { ErrorMessage } from "../../../components/form/ErrorMessage";
+import { useNavigate } from "react-router-dom";
 
 const AboutYouForm = () => {
+  const navigate = useNavigate()
   const {
     register,
     handleSubmit,
@@ -18,6 +20,7 @@ const AboutYouForm = () => {
 
   const onSubmit: SubmitHandler<AboutYouFormData> = (data) => {
     console.log(data);
+    navigate("/interests")
   };
 
   return (
@@ -68,8 +71,8 @@ const AboutYouForm = () => {
                 : "border-[#B8C5CA] focus:outline-neutral-500"
             } h-12 py-3 px-4 
             placeholder:text-[#B8C5CA] placeholder:text-sm text-neutral-800`}
-            min={new Date(1900, 0, 1).toLocaleDateString()}
-            max={new Date().toLocaleDateString()}
+            min={new Date(1900, 0, 1).toISOString().split("T")[0]}
+            max={new Date().toISOString().split("T")[0]}
           />
           {errors.dateOfBirth?.message && (
             <ErrorMessage message={errors.dateOfBirth?.message} />
