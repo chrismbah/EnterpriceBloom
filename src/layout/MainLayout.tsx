@@ -4,10 +4,12 @@ import { Outlet } from "react-router-dom";
 
 const MainLayout = () => {
   return (
-    <div className="max-w-screen-2xl mx-auto ">
+    <div className="">
+      <div className="sticky top-0">
         <Navbar />
         <ActionBar />
-      <div>
+      </div>
+      <div className="">
         <Outlet />
       </div>
     </div>
