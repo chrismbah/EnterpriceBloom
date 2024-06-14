@@ -3,6 +3,14 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      fontSize: {
+        xs: ["12px", "16px"],
+        sm: ["14px", "20px"],
+        base: ["16px", "24px"],
+        md: ["18px", "26px"],
+        lg: ["20px", "28px"],
+        xl: ["24px", "32px"],
+      },
       screens: {
         xs: "480px", // Extra Small
         sm: "568px", // Adjusted Small from default
@@ -36,19 +44,6 @@ export default {
           700: "#911B13",
           800: "#6D140E",
         },
-        secondary: {
-          50: "#FFF4D5",
-          100: "#FFECB9",
-          200: "#FFE395",
-          300: "#FFDA72",
-          400: "#FFD04F",
-          500: "#FFC72C",
-          600: "#D4A625",
-          700: "#AA851D",
-          800: "#806416",
-          900: "#55420F",
-        },
-        // ...
       },
       boxShadow: {
         xs: "0 12px 24px -10px #B3B6BA0D",
