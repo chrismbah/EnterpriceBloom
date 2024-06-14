@@ -5,7 +5,7 @@ const SponsoredPosts = () => {
   const sponsored = [
     {
       id: 1,
-      title: "Get started with our products easily",
+      title: "Welcome to Entreprise Buzz, let's get started",
       link: "EntrepriseBuzz.com",
       img: feed1,
     },
@@ -17,7 +17,7 @@ const SponsoredPosts = () => {
     },
   ];
   return (
-    <div className="bg-white rounded-lg py-8 px-4 ">
+    <div className="bg-white rounded-lg py-6 px-4 w-full">
       <div className="flex flex-col gap-3.5 ">
         <h2 className="text-[#36474F] font-bold ">Sponsored</h2>
         <div className="flex flex-col gap-4">
@@ -29,10 +29,10 @@ const SponsoredPosts = () => {
                 className="w-[112px] h-[72px] object-cover rounded-lg "
               />
               <div className="flex gap-0.5 flex-col ">
-                <h1 className="font-bold text-[13px] ">{title}</h1>
+                <h1 className="font-bold text-[13px] text-left ">{title}</h1>
                 <Link
                   to={link}
-                  className="text-[#36474F] font-medium text-[9.5px] leading-[14px] "
+                  className="text-[#36474F] font-medium text-[10px] leading-[14px] "
                 >
                   {link}
                 </Link>

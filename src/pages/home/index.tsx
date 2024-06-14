@@ -4,6 +4,11 @@ import PopularTags from "./PopularTags";
 import UtilityLinks from "./UtilityLinks";
 import NewsFeed from "./NewsFeed";
 import SponsoredPosts from "./SponsoredPosts";
+import Buzzcussions from "./Buzzcussions";
+import TopSearches from "./TopSearches";
+import BuzzChallenges from "./BuzzChallenges";
+import CreateAd from "./CreateAd";
+import HomeFeed from "./HomeFeed";
 
 const HomePage = () => {
   return (
@@ -22,16 +27,19 @@ const HomePage = () => {
           </div>
           <div className="basis-1/2">
             <div className="w-full items-center flex flex-col gap-4 mb-5">
-              {/* <NewsFeed /> 
-              <PopularTags />
-              <UtilityLinks /> */}
-              Hi!
+              <HomeFeed />
             </div>
           </div>
           <div className="basis-[28%]">
             <div className="w-full items-center flex flex-col gap-4 mb-5">
               <NewsFeed />
               <SponsoredPosts />
+              <Buzzcussions />
+              <TopSearches />
+              <SponsoredPosts />
+              <SponsoredPosts />
+              <BuzzChallenges />
+              <CreateAd />
             </div>
           </div>
         </div>
