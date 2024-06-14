@@ -1,4 +1,4 @@
-import HomePage from "../../pages/home/HomePage";
+import HomePage from "../../pages/Home";
 import { IRoutes } from ".";
 export const mainRoutes: IRoutes[] = [
   {
