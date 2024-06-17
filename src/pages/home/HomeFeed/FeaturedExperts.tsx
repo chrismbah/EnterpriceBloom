@@ -5,25 +5,27 @@ import expert2 from "../../../assets/img/feed/user2.png";
 import expert3 from "../../../assets/img/feed/user.png";
 import arrowLeft from "../../../assets/icons/home/arrowLeft.svg";
 import arrowRight from "../../../assets/icons/home/arrowRight.svg";
+import { ButtonGroupProps } from "react-multi-carousel/lib/types";
 
-const ButtonGroup = ({ next, previous }) => {
+const ButtonGroup = ({ next, previous }: ButtonGroupProps) => {
   return (
     <div className="carousel-button-group absolute w-full flex flex-row-reverse items-center justify-between">
       <button
         className=" h-10 w-10 flex items-center justify-center rounded-full bg-white"
-        onClick={() => previous()}
+        onClick={() => previous && previous()}
       >
         <img src={arrowLeft} alt="" className="w-[8px] h-[13px] " />
       </button>{" "}
       <button
         className=" h-10 w-10 flex items-center justify-center rounded-full bg-white"
-        onClick={() => next()}
+        onClick={() => next && next()}
       >
         <img src={arrowRight} alt="" className="w-[8px] h-[13px] " />
       </button>
     </div>
   );
 };
+
 const FeaturedExperts = () => {
   //! TODO: Refactor Responsiveness
   const responsiveCarousel = {
@@ -62,9 +64,9 @@ const FeaturedExperts = () => {
     infinite: true,
     autoPlay: true,
     arrows: false,
-    autoPlaySpeed: 2000,
+    autoPlaySpeed: 3000,
     keyBoardControl: true,
-    pauseOnHover: false,
+    pauseOnHover: true,
     customTransition: "transform 600ms ease-in-out",
     transitionDuration: 600,
     removeArrowOnDeviceType: ["tablet", "mobile"],
@@ -102,16 +104,11 @@ const FeaturedExperts = () => {
       </div>
       <div className="w-full">
         <div className="max-w-[600px] mx-auto overflow-visible">
-          <Carousel
-            {...carouselProps}
-            customButtonGroup={
-              <ButtonGroup next={undefined} previous={undefined} />
-            }
-          >
+          <Carousel {...carouselProps} customButtonGroup={<ButtonGroup />}>
             {experts.map(({ img, title, name, id }) => (
               <div
                 key={id}
-                className="overflow-hidden flex flex-col w-[230px] h-[220px] rounded-lg"
+                className="overflow-hidden flex flex-col w-[230px] h-[230px] rounded-lg"
               >
                 <img
                   src={img}
@@ -125,7 +122,7 @@ const FeaturedExperts = () => {
                       {title}
                     </h2>
                   </div>
-                  <button className="py-[4px] px-[10px] h-fit bg-primary-500 text-white rounded text-xs">
+                  <button className="py-[4px] px-[10px] h-fit bg-primary-500 text-white rounded text-xs font-semibold">
                     Follow
                   </button>
                 </div>
