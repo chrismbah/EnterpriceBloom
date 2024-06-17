@@ -1,5 +1,6 @@
 import FeaturedExperts from "./FeaturedExperts";
 import Post from "./Post";
+import InterestGroups from "./InterestGroups";
 import userImg from "../../../assets/img/feed/user.png";
 import postImg1 from "../../../assets/img/feed/884637f9d2ced867495656b15215f46a.png";
 import postImg2 from "../../../assets/img/feed/post.png";
@@ -115,6 +116,7 @@ const HomeFeed = () => {
       {dummyData.map((data) => (
         <Post {...data} />
       ))}
+      <InterestGroups />
     </div>
   );
 };
