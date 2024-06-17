@@ -55,7 +55,7 @@ const AboutYouForm = () => {
           error={errors.businessName}
         />
         <div className="w-full flex flex-col gap-[8px]">
-          <label htmlFor="datepicker" className="font-semibold">
+          <label htmlFor="dateOfBirth" className="font-semibold">
             Date of Birth
           </label>
           <input

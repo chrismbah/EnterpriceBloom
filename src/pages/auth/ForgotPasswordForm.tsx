@@ -49,7 +49,6 @@ const ForgotPasswordForm = () => {
             error={errors.email}
           />
         </div>
-
         <button
           type="submit"
           className="w-full place-content-center font-bold bg-primary-500 text-white rounded-[8px] h-[52px] p-[8px] text-center "
