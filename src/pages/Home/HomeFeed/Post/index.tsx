@@ -224,7 +224,26 @@ const Post = ({
               <p className="text-black text-sm font-semibold">Save</p>
             </button>
           </div>
-          <div>Hello</div>
+          {/* <div>
+            <div className="flex items-center gap-1.5">
+              <div className="flex items-center gap-1">
+                <ReactSVG
+                  src={starred}
+                  beforeInjection={(svg) =>
+                    svg.setAttribute(
+                      "class",
+                      "w-[16px] h-[16px] cursor-pointer "
+                    )
+                  }
+                />
+                <span className="text-xs font-semibold">Star</span>
+              </div>
+              <div className="flex items-center gap-1.5 text-xs font-semibold text-[#36474F]">
+                <span>Starred {starCount}.</span>
+                <span>{comments.repliesCount} Reply</span>
+              </div>
+            </div>
+          </div> */}
         </div>
       </div>
       <PostModal
