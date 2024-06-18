@@ -108,7 +108,7 @@ const InterestGroups = () => {
             {interestGroups.map(({ img, members, name, id }) => (
               <div
                 key={id}
-                className="overflow-hidden flex flex-col w-[230px] h-[230px] rounded-lg"
+                className="overflow-hidden flex flex-col w-[230px] h-[250px] rounded-lg"
               >
                 <img
                   src={img}
@@ -123,10 +123,10 @@ const InterestGroups = () => {
                     </p>
                   </div>
                   <div className="flex items-center flex-row-reverse justify-between gap-2 w-full">
-                    <button className="py-[4px] px-[10px] h-7 w-[60%] bg-primary-500 text-white rounded text-xs font-semibold">
+                    <button className="py-[4px] px-[10px] h-6 w-[60%] bg-primary-500 text-white rounded text-xs font-semibold">
                       Follow
                     </button>{" "}
-                    <button className="py-[4px] px-[10px] h-7 w-[40%] bg-[#E7EAEB] text-[#262520] rounded text-xs font-semibold">
+                    <button className="py-[4px] px-[10px] h-6 w-[40%] bg-[#E7EAEB] text-[#262520] rounded text-xs font-semibold">
                       Remove
                     </button>
                   </div>

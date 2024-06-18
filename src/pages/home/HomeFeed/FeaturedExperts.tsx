@@ -108,14 +108,14 @@ const FeaturedExperts = () => {
             {experts.map(({ img, title, name, id }) => (
               <div
                 key={id}
-                className="overflow-hidden flex flex-col w-[230px] h-[230px] rounded-lg"
+                className="overflow-hidden flex flex-col w-[230px] h-[250px] rounded-lg"
               >
                 <img
                   src={img}
                   alt={name}
-                  className="w-full h-[160px] object-cover "
+                  className="w-full h-[70%] object-cover "
                 />
-                <div className="w-full h-[70px] bg-white px-2 py-3 flex flex-row-reverse justify-between items-center ">
+                <div className="w-full h-[30%] bg-white px-2 py-3 flex flex-row-reverse justify-between items-center ">
                   <div className="flex flex-col">
                     <h1 className="font-semibold text-sm text-left">{name}</h1>
                     <h2 className="text-xs font-semibold text-[#36474F] text-left">
