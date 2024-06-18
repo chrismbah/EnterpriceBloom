@@ -1,12 +1,13 @@
 import { useState } from "react";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/img/logo.png";
 import messages from "../../assets/icons/nav/messages_icon.svg";
 import notif from "../../assets/icons/nav/notif_icon.svg";
-import profile from "../../assets/user/profile.png";
+import profile from "../../assets/img/user/profile.png";
 import search from "../../assets/icons/nav/search.svg";
-import { ArrowDownIcon } from "../../assets/icons/ArrowDownIcon";
+import { ArrowDownIcon } from "../icons/ArrowDownIcon";
 import { Link } from "react-router-dom";
 import clock from "../../assets/icons/nav/clock.svg";
+
 const Navbar = () => {
   const [isFocused, setIsFocused] = useState(false);
 

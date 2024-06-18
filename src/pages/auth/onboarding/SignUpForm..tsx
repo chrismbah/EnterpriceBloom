@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import googleIcon from "../../../assets/icons/google.svg";
 import facebookIcon from "../../../assets/icons/facebook.svg";
-import { ArrowDownIcon } from "../../../assets/icons/ArrowDownIcon";
+import { ArrowDownIcon } from "../../../components/icons/ArrowDownIcon";
 import { countries } from "../../../data/countries";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";

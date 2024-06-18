@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
-import { SearchIcon } from "../../components/icons/SearchIcon";
+import { ReactSVG } from "react-svg";
+import search from "../../assets/icons/home/search.svg";
+
 const Buzzcussions = () => {
   const discussions = [
     {
@@ -45,7 +47,12 @@ const Buzzcussions = () => {
           </div>
           <div className="relative z-[1]">
             <div className="absolute left-6 top-1/2 transform -translate-y-1/2 text-gray-500">
-              <SearchIcon className="w-[18px] h-[18px] " />
+              <ReactSVG
+                src={search}
+                beforeInjection={(svg) => {
+                  svg.setAttribute("class", "w-[18px] h-[18px]");
+                }}
+              />
             </div>
             <input
               placeholder="Search Here"

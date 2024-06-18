@@ -1,5 +1,5 @@
 import { useState } from "react";
-import PasswordResetModal from "../../components/modal/PasswordResetModal";
+import PasswordResetModal from "./PasswordResetModal";
 import FormInput from "../../components/form/FormInput";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";

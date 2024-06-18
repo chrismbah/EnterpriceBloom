@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import logo from "../assets/logo_white.png";
+import logo from "../assets/img/logo_white.png";
 import { OnboardingSlider } from "../components/carousel/OnboardingSlider";
 const OnboardingLayout = () => {
   return (

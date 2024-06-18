@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from "../../assets/logo_small.png";
+import logo from "../../assets/img/logo_small.png";
 const UtilityLinks = () => {
   const links = [
     {

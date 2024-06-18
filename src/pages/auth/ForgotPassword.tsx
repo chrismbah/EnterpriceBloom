@@ -1,11 +1,11 @@
 import ForgotPasswordForm from "./ForgotPasswordForm";
-import logo from "../../assets/logo_white.png";
+import logo from "../../assets/img/logo_white.png";
 import { Link } from "react-router-dom";
-import instagram from "../../assets/svg/instagram_white.svg";
-import x from "../../assets/svg/x_white.svg";
-import linkedin from "../../assets/svg/linkedin_white.svg";
-import ellipse163 from "../../assets/svg/ellipse163.svg";
-import ellipse164 from "../../assets/svg/ellipse164.svg";
+import instagram from "../../assets/icons/instagram_white.svg";
+import x from "../../assets/icons/x_white.svg";
+import linkedin from "../../assets/icons/linkedin_white.svg";
+import ellipse163 from "../../assets/svg/login/ellipse163.svg";
+import ellipse164 from "../../assets/svg/login/ellipse164.svg";
 const ForgotPassword = () => {
   return (
     <div className="onboarding-layout flex min-h-screen w-screen overflow-x-hidden ">

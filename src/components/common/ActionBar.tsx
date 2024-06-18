@@ -1,5 +1,5 @@
 import edit from "../../assets/icons/action_bar/edit.svg";
-import { ArrowDownIcon } from "../../assets/icons/ArrowDownIcon";
+import { ArrowDownIcon } from "../icons/ArrowDownIcon";
 import critique from "../../assets/icons/action_bar/critique.png";
 import great from "../../assets/icons/action_bar/great.png";
 import bad from "../../assets/icons/action_bar/bad.png";
