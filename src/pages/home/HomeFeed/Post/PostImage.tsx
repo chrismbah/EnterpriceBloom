@@ -1,10 +1,15 @@
-const PostImage = ({ imgSrc }: { imgSrc: string }) => {
+interface PostImageProps {
+  imgSrc: string;
+  onClick: () => void;
+}
+const PostImage = ({ imgSrc, onClick }: PostImageProps) => {
   return (
     <div className="post-image w-full">
       <img
         src={imgSrc}
+        onClick={onClick}
         alt=""
-        className="w-full h-[420px] object-cover rounded-[32px]"
+        className="cursor-pointer w-full h-full max-h-[450px] object-cover rounded-[32px]"
       />
     </div>
   );
