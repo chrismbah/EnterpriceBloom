@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import logo from "../../assets/img/logo.png";
 import messages from "../../assets/icons/nav/messages_icon.svg";
 import notif from "../../assets/icons/nav/notif_icon.svg";
@@ -14,6 +14,16 @@ const Navbar = () => {
   const handleFocus = () => {
     setIsFocused(true);
   };
+  useEffect(() => {
+    if (isFocused) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
+    return () => {
+      document.body.classList.remove("overflow-hidden");
+    };
+  });
 
   const handleBlur = () => {
     // Delay the blur effect to allow click events on the modal
