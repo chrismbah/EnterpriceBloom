@@ -1,7 +1,4 @@
-export const SearchIcon = ({ className }: { className?: string }) => {
-  return (
-    <svg
-      className={className}
+<svg
       width="24"
       height="24"
       viewBox="0 0 24 24"
@@ -25,5 +22,3 @@ export const SearchIcon = ({ className }: { className?: string }) => {
         />
       </g>
     </svg>
-  );
-};
