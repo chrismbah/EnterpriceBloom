@@ -10,13 +10,13 @@ import premium from "../../assets/icons/home/side_bar/premium.svg";
 const SideNavbar = () => {
   const sideLinks = [
     { name: "Home", link: "/", icon: home },
-    { name: "Challenges", link: "/challenges", icon: home },
-    { name: "Buzz Marketplace", link: "/marketplace", icon: marketplace },
-    { name: "Buzz Your Business", link: "/business", icon: business },
-    { name: "Advertise", link: "/advertise", icon: advertise },
-    { name: "Monetization", link: "/monetization", icon: monetization },
-    { name: "Go Premium", link: "/premium", icon: premium },
-    { name: "Events", link: "/events", icon: events },
+    { name: "Challenges", link: "/", icon: home },
+    { name: "Buzz Marketplace", link: "/", icon: marketplace },
+    { name: "Buzz Your Business", link: "/", icon: business },
+    { name: "Advertise", link: "/", icon: advertise },
+    { name: "Monetization", link: "/", icon: monetization },
+    { name: "Go Premium", link: "/", icon: premium },
+    { name: "Events", link: "/", icon: events },
   ];
 
   return (

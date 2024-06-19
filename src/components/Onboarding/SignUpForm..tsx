@@ -1,22 +1,32 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import googleIcon from "../../../assets/icons/google.svg";
-import facebookIcon from "../../../assets/icons/facebook.svg";
-import { ArrowDownIcon } from "../../../components/icons/ArrowDownIcon";
-import { countries } from "../../../data/countries";
+import { Link } from "react-router-dom";
+import googleIcon from "../../assets/icons/google.svg";
+import facebookIcon from "../../assets/icons/facebook.svg";
+import { ArrowDownIcon } from "../icons/ArrowDownIcon";
+import { countries } from "../../data/countries";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { signupSchema, SignupFormData } from "../../../schema/auth/signUp";
-import { ErrorMessage } from "../../../components/form/ErrorMessage";
-import FormInput from "../../../components/form/FormInput";
+import { signupSchema, SignupFormData } from "../../schema/auth/signUp";
+import { ErrorMessage } from "../form/ErrorMessage";
+import FormInput from "../form/FormInput";
+import { useDispatch } from "react-redux";
+import { useMutation } from "@tanstack/react-query";
+import { nextStep } from "../../store/slices/onboardingSlice";
+import { signup } from "../../services/auth/onboarding";
 
 const SignUpForm = () => {
+  const dispatch = useDispatch();
+  const { mutate } = useMutation({
+    mutationFn: signup,
+    onSuccess: () => {
+      dispatch(nextStep());
+    },
+  });
+
   const [selectedCountry, setSelectedCountry] = useState("");
   const handleCountryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedCountry(e.target.value);
   };
-  const navigate = useNavigate();
-
   const {
     register,
     handleSubmit,
@@ -27,7 +37,8 @@ const SignUpForm = () => {
 
   const onSubmit: SubmitHandler<SignupFormData> = (data) => {
     console.log(data);
-    navigate("/onboarding/about-you");
+    mutate(data);
+    dispatch(nextStep());
   };
 
   return (
@@ -47,7 +58,7 @@ const SignUpForm = () => {
                 {...register("country")}
                 value={selectedCountry}
                 onChange={handleCountryChange}
-                className={`w-full h-12 px-4 ${
+                className={`cursor-pointer w-full h-12 px-4 ${
                   errors.country
                     ? " border-primary-600 focus:outline-primary-600"
                     : "border-[#B8C5CA] focus:outline-neutral-500"

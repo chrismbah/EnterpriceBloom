@@ -32,10 +32,8 @@ const FormInput: React.FC<FormInputProps> = ({
           id={id}
           {...register}
           type={type}
-          className={`w-full border-[1.5px] rounded-[8px] ${
-            error
-              ? "border-primary-600 focus:outline-primary-600"
-              : "border-[#B8C5CA] focus:outline-neutral-500"
+          className={`w-full focus:outline-none border-[1.5px] rounded-[8px] ${
+            error ? "border-primary-600" : "border-[#B8C5CA] "
           } h-12 py-3 px-4 
           placeholder:text-[#B8C5CA] placeholder:text-sm text-neutral-800`}
         />

@@ -12,7 +12,10 @@ export const aboutYouSchema = yup
     phoneNumber: yup
       .string()
       .required("Enter your phone number")
-      .matches(/^\d+$/, "Phone number must contain only digits"),
+      .matches(
+        /^(\+?\d{0,4})?\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{4}\)?)?$/,
+        "Phone number must be a valid international phone number"
+      ),
     businessName: yup.string(),
     dateOfBirth: yup
       .date()

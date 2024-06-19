@@ -1,7 +1,7 @@
 import { IRoutes } from ".";
-import SignUp from "../../pages/auth/onboarding/SignUp";
-import AboutYou from "../../pages/auth/onboarding/AboutYou";
-import Interests from "../../pages/auth/onboarding/Interests";
+import SignUp from "../../components/Onboarding/SignUp";
+import AboutYou from "../../components/Onboarding/AboutYou";
+import Interests from "../../components/Onboarding/Interests";
 export const onboardingRoutes: IRoutes[] = [
   {
     path: "signup",

@@ -4,10 +4,10 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { loginSchema, LoginFormData } from "../../schema/auth/login";
 import { ErrorMessage } from "../../components/form/ErrorMessage";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -18,12 +18,12 @@ const LoginForm = () => {
 
   const onSubmit: SubmitHandler<LoginFormData> = (data) => {
     console.log(data);
-    navigate("/")
+    navigate("/");
   };
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="z-10 w-[600px] rounded-[24px] border border-white/50 px-8 py-10 bg-gradient-to-t from-white/10 to-white/10 backdrop-blur-md 
+      className="z-10 w-[600px] mx-5 rounded-[24px] border border-white/50 px-8 py-10 bg-gradient-to-t from-white/10 to-white/10 backdrop-blur-md 
         "
     >
       <div className="mb-6">
@@ -53,17 +53,6 @@ const LoginForm = () => {
             />
           )}
         </div>
-        {/* <div className="flex flex-col gap-2">
-          <label htmlFor="password" className="text-white font-semibold ">
-            Password
-          </label>
-          <input
-            type="password"
-            id="password"
-            placeholder="Enter Password"
-            className="rounded-[8px] py-3 px-4 focus:outline-none focus:border-none placeholder:text-[#B8C5CA] placeholder:font-medium placeholder:text-sm "
-          />
-        </div>{" "} */}
         <div className="w-full">
           <div className="flex flex-col gap-2">
             <label htmlFor="password" className="text-white font-semibold ">
@@ -85,9 +74,11 @@ const LoginForm = () => {
           )}
         </div>
       </div>
-      <p className="w-full text-right font-semibold text-white mb-2.5">
-        Forgot Password?
-      </p>
+      <Link to="/forgot-password">
+        <p className="w-full text-right font-semibold text-white mb-2.5">
+          Forgot Password?
+        </p>
+      </Link>
       <button
         type="submit"
         className="mb-3 w-full block place-content-center font-bold bg-primary-500 text-white rounded-[8px] h-[52px] p-[8px] text-center "

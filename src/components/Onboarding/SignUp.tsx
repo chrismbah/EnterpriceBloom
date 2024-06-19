@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import SignUpForm from "./SignUpForm.";
+
 const SignUp = () => {
   return (
-    <div className=" w-[90%] lg:w-[85%] xl:w-[80%]">
+    <div className=" w-full lg:w-[80%] xl:w-[85%]">
       <div className="mb-[28px] ">
-        <h1 className="font-bold text-3xl mb-[5px] ">Create your account</h1>
-        <p className="font-semibold text-[1.05rem] leading-[1.5rem] text-[#36474F] ">
+        <h1 className="font-bold text-2xl md:text-3xl mb-0.5 md:mb-[5px]">Create your account</h1>
+        <p className="font-semibold text-base md:text-[1.05rem] leading-6 text-[#36474F] ">
           Already have an account?{" "}
           <Link to="/login" className="text-[#DA281C]">
             Log In

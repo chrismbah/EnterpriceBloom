@@ -1,13 +1,17 @@
 import { useState } from "react";
-import { interests } from "../../../data/interests";
-import { Link } from "react-router-dom";
+import { interests } from "../../data/interests";
+import { useMutation } from "@tanstack/react-query";
+import { submitInterests } from "../../services/auth/onboarding";
+import { useNavigate } from "react-router-dom";
 const Interests = () => {
   const [selectedInterests, setSelectedInterests] = useState<string[]>([]);
+  const navigate = useNavigate();
 
   // This function is responsible for adding or removing an interest from the
   // selectedInterests array based on whether the interest is already selected
   // or not. The interest is added if it's not in the array, and removed if
   // it is.
+
   const handleSelectInterest = (interest: string) => {
     // Check if the interest is already selected
     if (selectedInterests.includes(interest)) {
@@ -20,11 +24,25 @@ const Interests = () => {
       setSelectedInterests([...selectedInterests, interest]);
     }
   };
+
+  const handleSubmitInterests = (data: string[]) => {
+    console.log(data);
+    mutate(data);
+  };
+  const { mutate } = useMutation({
+    mutationFn: submitInterests,
+    onSuccess: () => {
+      navigate("/");
+    },
+  });
+
   return (
-    <div className="w-[90%]">
+    <div className=" w-full lg:w-[80%] xl:w-[85%]">
       <div className="mb-[16px] w-full ">
-        <h1 className="font-bold text-3xl mb-[5px] ">Let's get started</h1>
-        <p className="font-semibold text-[1.1rem] leading-[1.5rem] text-neutral-800 ">
+        <h1 className="font-bold text-2xl md:text-3xl mb-0.5 md:mb-[5px] ">
+          Let's get started
+        </h1>
+        <p className="font-semibold text-base md:text-[1.05rem] leading-6 text-[#36474F] ">
           Pick Marketing topics you’ll like to see in your home feed
         </p>
       </div>
@@ -43,12 +61,12 @@ const Interests = () => {
           </button>
         ))}
       </div>
-      <Link
-        to="/forgot-password"
+      <button
+        onClick={() => handleSubmitInterests(selectedInterests)}
         className="w-full block place-content-center font-bold bg-primary-500 text-white rounded-[8px] h-[52px] p-[8px] text-center "
       >
         Go to Feed
-      </Link>
+      </button>
     </div>
   );
 };

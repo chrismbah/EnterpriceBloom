@@ -3,7 +3,6 @@ import OnboardingLayout from "../../layout/OnboardingLayout";
 import MainLayout from "../../layout/MainLayout";
 import Login from "../../pages/auth/Login";
 import ForgotPassword from "../../pages/auth/ForgotPassword";
-import { onboardingRoutes } from "./onboardingRoutes";
 import { mainRoutes } from "./mainRoutes";
 export interface IRoutes {
   path: string;
@@ -23,7 +22,6 @@ export const routes: IRoutes[] = [
     path: "/onboarding",
     element: <OnboardingLayout />,
     authGuard: false,
-    children: onboardingRoutes,
   },
   {
     path: "/login",
