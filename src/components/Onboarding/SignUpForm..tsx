@@ -60,8 +60,8 @@ const SignUpForm = () => {
                 onChange={handleCountryChange}
                 className={`cursor-pointer w-full h-12 px-4 ${
                   errors.country
-                    ? " border-primary-600 focus:outline-primary-600"
-                    : "border-[#B8C5CA] focus:outline-neutral-500"
+                    ? " border-primary-600"
+                    : "border-[#B8C5CA] "
                 } py-3 border rounded-lg appearance-none ${
                   selectedCountry === ""
                     ? "text-[#B8C5CA] text-sm"

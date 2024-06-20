@@ -8,19 +8,22 @@ import AboutYou from "../components/Onboarding/AboutYou";
 import Interests from "../components/Onboarding/Interests";
 import { setStep } from "../store/slices/onboardingSlice";
 const OnboardingLayout = () => {
-  const step = useSelector((state: RootState) => state.onboarding.step);
+  const { step, completed } = useSelector(
+    (state: RootState) => state.onboarding
+  );
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const savedStep = localStorage.getItem("onboardingStep");
-    if (savedStep) {
-      dispatch(setStep(Number(savedStep)));
+    const storedOnboarding = localStorage.getItem("onboarding");
+    if (storedOnboarding) {
+      const { step } = JSON.parse(storedOnboarding);
+      dispatch(setStep(step));
     }
   }, [dispatch]);
 
   useEffect(() => {
-    localStorage.setItem("onboardingStep", step.toString());
-  }, [step]);
+    localStorage.setItem("onboarding", JSON.stringify({ step, completed }));
+  }, [step, completed]);
 
   const renderStep = () => {
     switch (step) {

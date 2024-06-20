@@ -1,4 +1,3 @@
-/* eslint-disable react-refresh/only-export-components */
 import OnboardingLayout from "../../layout/OnboardingLayout";
 import MainLayout from "../../layout/MainLayout";
 import Login from "../../pages/auth/Login";
@@ -15,7 +14,7 @@ export const routes: IRoutes[] = [
   {
     path: "/",
     element: <MainLayout />,
-    authGuard: false,
+    authGuard: true,
     children: mainRoutes,
   },
   {

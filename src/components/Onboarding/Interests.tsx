@@ -3,11 +3,14 @@ import { interests } from "../../data/interests";
 import { useMutation } from "@tanstack/react-query";
 import { submitInterests } from "../../services/auth/onboarding";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { nextStep } from "../../store/slices/onboardingSlice";
 const Interests = () => {
   const [selectedInterests, setSelectedInterests] = useState<string[]>([]);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  // This function is responsible for adding or removing an interest from the
+  // This function is for adding or removing an interest from the
   // selectedInterests array based on whether the interest is already selected
   // or not. The interest is added if it's not in the array, and removed if
   // it is.
@@ -28,6 +31,8 @@ const Interests = () => {
   const handleSubmitInterests = (data: string[]) => {
     console.log(data);
     mutate(data);
+    dispatch(nextStep());
+    navigate("/");
   };
   const { mutate } = useMutation({
     mutationFn: submitInterests,
