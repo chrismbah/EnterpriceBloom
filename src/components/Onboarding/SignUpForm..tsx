@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
 import googleIcon from "../../assets/icons/google.svg";
 import facebookIcon from "../../assets/icons/facebook.svg";
-// import { ArrowDownIcon } from "../icons/ArrowDownIcon";
-// import { countries } from "../../data/countries";
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { signupSchema, SignupFormData } from "../../schema/auth/signUp";
@@ -12,10 +10,7 @@ import { useDispatch } from "react-redux";
 import { useMutation } from "@tanstack/react-query";
 import { nextStep } from "../../store/slices/onboardingSlice";
 import { signup } from "../../services/auth/onboarding";
-// import { CountrySelect } from "react-country-state-city";
-// import "react-country-state-city/dist/react-country-state-city.css";
 import ReactFlagsSelect from "react-flags-select";
-// import { CountryDropdown } from "react-country-region-selector";
 const SignUpForm = () => {
   const dispatch = useDispatch();
   const { mutate } = useMutation({
