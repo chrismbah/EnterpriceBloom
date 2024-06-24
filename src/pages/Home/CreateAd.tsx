@@ -8,7 +8,7 @@ const CreateAd = () => {
           engagement. Tailor your message to your audience and highlight your
           unique value proposition.
         </p>
-        <button className="rounded-lg text-white bg-primary-500 py-3 px-7 text-xs w-fit ">
+        <button className="rounded-lg font-medium text-white bg-primary-500 py-3 px-7 text-xs w-fit ">
           Create an Ad
         </button>
       </div>

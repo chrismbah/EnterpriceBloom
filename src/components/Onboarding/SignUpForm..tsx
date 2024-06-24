@@ -1,10 +1,9 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import googleIcon from "../../assets/icons/google.svg";
 import facebookIcon from "../../assets/icons/facebook.svg";
-import { ArrowDownIcon } from "../icons/ArrowDownIcon";
-import { countries } from "../../data/countries";
-import { useForm, SubmitHandler } from "react-hook-form";
+// import { ArrowDownIcon } from "../icons/ArrowDownIcon";
+// import { countries } from "../../data/countries";
+import { useForm, SubmitHandler, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { signupSchema, SignupFormData } from "../../schema/auth/signUp";
 import { ErrorMessage } from "../form/ErrorMessage";
@@ -13,7 +12,10 @@ import { useDispatch } from "react-redux";
 import { useMutation } from "@tanstack/react-query";
 import { nextStep } from "../../store/slices/onboardingSlice";
 import { signup } from "../../services/auth/onboarding";
-
+// import { CountrySelect } from "react-country-state-city";
+// import "react-country-state-city/dist/react-country-state-city.css";
+import ReactFlagsSelect from "react-flags-select";
+// import { CountryDropdown } from "react-country-region-selector";
 const SignUpForm = () => {
   const dispatch = useDispatch();
   const { mutate } = useMutation({
@@ -22,14 +24,10 @@ const SignUpForm = () => {
       dispatch(nextStep());
     },
   });
-
-  const [selectedCountry, setSelectedCountry] = useState("");
-  const handleCountryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedCountry(e.target.value);
-  };
   const {
     register,
     handleSubmit,
+    control,
     formState: { errors },
   } = useForm<SignupFormData>({
     resolver: yupResolver(signupSchema),
@@ -40,7 +38,6 @@ const SignUpForm = () => {
     mutate(data);
     dispatch(nextStep());
   };
-
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
@@ -52,35 +49,22 @@ const SignUpForm = () => {
             <label htmlFor="country" className="font-semibold">
               Select Your Country
             </label>
-            <div className="relative w-full">
-              <select
-                id="country"
-                {...register("country")}
-                value={selectedCountry}
-                onChange={handleCountryChange}
-                className={`cursor-pointer w-full h-12 px-4 ${
-                  errors.country
-                    ? " border-primary-600"
-                    : "border-[#B8C5CA] "
-                } py-3 border rounded-lg appearance-none ${
-                  selectedCountry === ""
-                    ? "text-[#B8C5CA] text-sm"
-                    : "text-neutral-800"
-                }`}
-              >
-                <option value="" disabled selected hidden>
-                  Select Your Country
-                </option>
-                {countries.map(({ country, flag, code }) => (
-                  <option className="text-black" key={code} value={code}>
-                    <img src={flag} alt={code} /> {country}
-                  </option>
-                ))}
-              </select>
-              <div className="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none">
-                <ArrowDownIcon />
-              </div>
-            </div>
+            <Controller
+              name="country"
+              control={control}
+              render={({ field }) => (
+                <ReactFlagsSelect
+                  selected={field.value}
+                  onSelect={field.onChange}
+                  className={`rounded-lg focus:outline-none w-full h-12 ${
+                    errors.country ? " border-primary-600" : "border-[#B8C5CA]"
+                  } border rounded-lg`}
+                  // className="focus:outline-none w-full h-12 border rounded-lg border-[#B8C5CA]"
+                  selectButtonClassName=" border-none px-4 h-12 rounded-[8px] border"
+                  placeholder="Select Country"
+                />
+              )}
+            />
           </div>
           {errors.country?.message && (
             <ErrorMessage message={errors.country.message} />

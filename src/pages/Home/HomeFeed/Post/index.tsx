@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import PostImage from "./PostImage";
 import { ReactSVG } from "react-svg";
 import engagement from "../../../../assets/icons/home/feed/engagements.svg";
@@ -11,6 +11,7 @@ import repost from "../../../../assets/icons/home/feed/repost.svg";
 import share from "../../../../assets/icons/home/feed/share.svg";
 import save from "../../../../assets/icons/home/feed/save.svg";
 import PostModal from "./PostModal";
+import { Link } from "react-router-dom";
 export interface PostProps {
   userImg: string;
   username: string;
@@ -55,17 +56,6 @@ const Post = ({
   const [isPostModalOpen, setIsPostModalOpen] = useState(false);
   const MAX_LENGTH = 336;
 
-  useEffect(() => {
-    if (isPostModalOpen) {
-      document.body.classList.add("overflow-hidden");
-    } else {
-      document.body.classList.remove("overflow-hidden");
-    }
-    return () => {
-      document.body.classList.remove("overflow-hidden");
-    };
-  }, [isPostModalOpen]);
-
   const handleSeeMoreClick = () => {
     setIsTruncated(!isTruncated);
   };
@@ -80,11 +70,13 @@ const Post = ({
           <div className="profile rounded-full border border-[#E8E8E8] p-1 px-2 flex items-center justify-between">
             <div className="profile-det flex gap-12">
               <div className="flex items-center gap-2">
-                <img
-                  src={userImg}
-                  alt=""
-                  className="w-[52px] h-[52px] rounded-full object-cover"
-                />
+                <Link to={`/${username}`}>
+                  <img
+                    src={userImg}
+                    alt=""
+                    className="w-[52px] h-[52px] rounded-full object-cover"
+                  />
+                </Link>
                 <div className="flex flex-col gap-0.5">
                   <h1 className="text-black font-bold">{username}</h1>
                   <p className="font-semibold text-xs text-[#262520]">

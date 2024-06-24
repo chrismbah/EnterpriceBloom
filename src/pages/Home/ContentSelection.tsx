@@ -6,7 +6,7 @@ const ContentSelection = () => {
     setSelected(option);
   };
   return (
-    <div className="content-selection flex items-center justify-center my-5 ">
+    <div className="content-selection flex items-center justify-center mt-5">
       <button
         className={`px-7 py-2 text-sm border border-[#94A5AB] rounded-l-[32px]  font-semibold  ${
           selected === "interests"

@@ -10,7 +10,7 @@ export const signupSchema = yup
       .required("Enter your email address"),
     password: yup
       .string()
-      .required("Enter your password")
+      .required("Please enter your password")
       .min(8, "Password must be at least 8 characters")
       .max(20, "Password must be at most 21 characters")
       .matches(

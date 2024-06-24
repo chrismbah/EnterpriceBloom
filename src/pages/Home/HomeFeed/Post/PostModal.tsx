@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { PostProps } from ".";
 import { ReactSVG } from "react-svg";
 import comments from "../../../../assets/icons/home/feed/comment_red.svg";
@@ -9,7 +9,7 @@ import comment from "../../../../assets/icons/home/feed/comment.svg";
 import repost from "../../../../assets/icons/home/feed/repost.svg";
 import share from "../../../../assets/icons/home/feed/share.svg";
 import save from "../../../../assets/icons/home/feed/save.svg";
-import arrowDown from "../../../../assets/icons/home/feed/comment_arrow_down.svg";
+import arrowDown from "../../../../assets/icons/home/feed/arrowDropdown.svg";
 import threeDots from "../../../../assets/icons/home/feed/threeDots.svg";
 import emoji from "../../../../assets/icons/home/feed/emoji.svg";
 import gallery from "../../../../assets/icons/home/feed/gallery.svg";
@@ -20,6 +20,17 @@ interface PostModalProps {
 }
 
 const PostModal = ({ isOpen, onClose, post }: PostModalProps) => {
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
+    return () => {
+      document.body.classList.remove("overflow-hidden");
+    };
+  }, [isOpen]);
+
   const MAX_LENGTH = 336; // Character limit for displaying full text
   const [isTruncated, setIsTruncated] = useState(true);
   const handleSeeMoreClick = () => {
@@ -28,8 +39,14 @@ const PostModal = ({ isOpen, onClose, post }: PostModalProps) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-white max-w-[980px] h-3/4 flex rounded-lg overflow-hidden">
+    <div
+      onClick={onClose}
+      className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+    >
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className="bg-white max-w-[980px] h-3/4 flex rounded-lg overflow-hidden"
+      >
         <div className="w-[55%] flex items-center justify-center bg-gray-200">
           <img
             src={post.imgSrc}

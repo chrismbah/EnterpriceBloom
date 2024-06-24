@@ -4,7 +4,11 @@ import critique from "../../assets/icons/action_bar/critique.png";
 import great from "../../assets/icons/action_bar/great.png";
 import bad from "../../assets/icons/action_bar/bad.png";
 import video from "../../assets/icons/action_bar/video.png";
+import { CreatePostModal } from "../../pages/Home/HomeFeed/Post/CreatePostModal";
+import { useState } from "react";
+
 const ActionBar = () => {
+  const [isCreatePostModalOpen, setIsCreatePostModalOpen] = useState(false);
   return (
     <div className="w-full flex items-center justify-center gap-6 py-2.5 bg-white ">
       <div className="flex items-center gap-[10px]">
@@ -54,12 +58,17 @@ const ActionBar = () => {
         </button>
       </div>
       <button
+        onClick={() => setIsCreatePostModalOpen(true)}
         className="py-3 px-4 rounded-[8px] bg-primary-500 text-white 
         flex items-center justify-center gap-[6px] "
       >
         <img src={edit} alt="share" className="w-4 h-4 " />
         <p className="font-semibold ">Share Expertise</p>
       </button>
+      <CreatePostModal
+        isOpen={isCreatePostModalOpen}
+        onClose={() => setIsCreatePostModalOpen(false)}
+      />
     </div>
   );
 };

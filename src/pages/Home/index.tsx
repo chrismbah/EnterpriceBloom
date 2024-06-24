@@ -12,39 +12,37 @@ import HomeFeed from "./HomeFeed";
 
 const HomePage = () => {
   return (
-    <div className="w-full bg-[#F4F4F4]">
-      <div className="max-w-screen-xl mx-auto">
-        <div className="flex items-center justify-center">
-          <ContentSelection />
+    <>
+      <div className="flex items-center justify-center mt-5 ">
+        <ContentSelection />
+      </div>
+      <div className="flex gap-4 mt-5">
+        <div className="basis-[25%]">
+          <div className="w-full items-center flex flex-col gap-4 mb-5">
+            <SideNavbar />
+            <PopularTags />
+            <UtilityLinks />
+          </div>
         </div>
-        <div className="flex gap-4">
-          <div className="basis-[25%]">
-            <div className="w-full items-center flex flex-col gap-4 mb-5">
-              <SideNavbar />
-              <PopularTags />
-              <UtilityLinks />
-            </div>
+        <div className="basis-1/2">
+          <div className="w-full items-center flex flex-col gap-4 mb-5">
+            <HomeFeed />
           </div>
-          <div className="basis-1/2">
-            <div className="w-full items-center flex flex-col gap-4 mb-5">
-              <HomeFeed />
-            </div>
-          </div>
-          <div className="basis-[28%]">
-            <div className="w-full items-center flex flex-col gap-4 mb-5">
-              <NewsFeed />
-              <SponsoredPosts />
-              <Buzzcussions />
-              <TopSearches />
-              <SponsoredPosts />
-              <SponsoredPosts />
-              <BuzzChallenges />
-              <CreateAd />
-            </div>
+        </div>
+        <div className="basis-[28%]">
+          <div className="w-full items-center flex flex-col gap-4 mb-5">
+            <NewsFeed />
+            <SponsoredPosts />
+            <Buzzcussions />
+            <TopSearches />
+            <SponsoredPosts />
+            <SponsoredPosts />
+            <BuzzChallenges />
+            <CreateAd />
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
