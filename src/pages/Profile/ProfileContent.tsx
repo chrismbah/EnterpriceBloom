@@ -2,14 +2,14 @@ import { useState } from "react";
 import ProfileTabs from "./ProfileTabs";
 import Posts from "./Posts";
 import Followers from "./Followers";
-import Following from "./Following";
+import Following from "./Followings";
 import Groups from "./Groups";
 
 const ProfileContent = () => {
   const [activeTab, setActiveTab] = useState("posts");
 
   return (
-    <div className="user-profile-content">
+    <div className="user-profile-content mb-5">
       <ProfileTabs activeTab={activeTab} setActiveTab={setActiveTab} />
       {activeTab === "posts" && <Posts />}
       {activeTab === "followers" && <Followers />}

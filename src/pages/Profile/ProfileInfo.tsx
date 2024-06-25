@@ -63,9 +63,10 @@ const ProfileInfo = () => {
               </div>
               <div className="bio">
                 <p className="font-medium text-[#36474F] text-sm ">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam
-                  saepe tempora harum, qui temporibus quos vitae quisquam.
-                  Delectus, repudiandae ea.
+                  Aspiring entrepreneur passionate about tech and innovation.
+                  Always eager to connect and share insights on startups,
+                  digital marketing, and venture capital. Let's build the future
+                  together.
                 </p>
               </div>
             </div>
