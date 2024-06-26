@@ -2,10 +2,11 @@ import NewsFeed from "../Home/NewsFeed";
 import CreateAd from "../Home/CreateAd";
 import ProfileInfo from "./ProfileInfo";
 import ProfileContent from "./ProfileContent";
+
 const ProfilePage = () => {
   return (
-    <div className="flex gap-10">
-      <div className="basis-3/4 mt-5">
+    <div className="user_profile flex gap-10">
+      <div className="user_profile_info basis-3/4 mt-5">
         <ProfileInfo />
         <ProfileContent />
       </div>

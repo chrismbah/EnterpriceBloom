@@ -34,8 +34,12 @@ const UtilityLinks = () => {
   return (
     <div className="flex flex-col gap-3 w-[230px] ">
       <div className="w-full flex items-center justify-center gap-4 flex-wrap">
-        {links.map(({ name, link }) => (
-          <Link to={link} className="text-[#36474F] font-semibold text-xs ">
+        {links.map(({ name, link }, i) => (
+          <Link
+            key={i}
+            to={link}
+            className="text-[#36474F] font-semibold text-xs "
+          >
             {name}
           </Link>
         ))}

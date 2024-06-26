@@ -26,7 +26,7 @@ const UserProfileInfo = () => {
           Edit Profile
         </button>
       </div>
-      <h1 className="font-bold text-2xl mb-3.5">Leonard Victor</h1>
+      <h1 className="font-bold text-[26px] mb-2">Leonard Victor</h1>
       <div className="followings flex items-center gap-7 mb-5">
         <div className="flex items-center gap-1">
           <p className="font-bold text-md">0</p>

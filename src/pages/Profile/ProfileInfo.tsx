@@ -32,8 +32,8 @@ const ProfileInfo = () => {
             </button>
           </div>
         </div>
-        <div className="w-full flex flex-col mb-3.5">
-          <h1 className="font-bold text-2xl ">Leonard Victor</h1>
+        <div className="w-full flex flex-col mb-2">
+          <h1 className="font-bold text-[26px]">Leonard Victor</h1>
           <span className="text-md font-semibold text-[#36474F]">
             @Lheonard
           </span>
