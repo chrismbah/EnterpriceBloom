@@ -5,7 +5,7 @@ import ProfileSetup from "./ProfileSetup";
 const UserProfilePage = () => {
   return (
     <div className="flex gap-10">
-      <div className="basis-3/4 mt-5">
+      <div className="basis-3/4 my-5">
         <UserProfileInfo />
         <ProfileSetup />
       </div>

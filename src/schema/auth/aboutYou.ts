@@ -9,6 +9,15 @@ export const aboutYouSchema = yup
         /^[a-zA-Z\s]+$/,
         "Full name must only contain letters and spaces"
       ),
+    username: yup
+      .string()
+      .required("Enter your username")
+      .matches(
+        /^[a-zA-Z0-9_]+$/,
+        "Username must only contain letters, numbers, and underscores"
+      )
+      .min(4, "Username must be at least 4 characters long")
+      .max(20, "Username cannot be more than 20 characters long"),
     phoneNumber: yup
       .string()
       .required("Enter your phone number")
@@ -24,7 +33,7 @@ export const aboutYouSchema = yup
       )
       .required("Enter your date of birth")
       .min(
-        new Date(1900, 0, 1),
+        new Date(1950, 0, 1),
         "Date of birth cannot be before January 1, 1900"
       )
       .max(new Date(), "Please input a valid date of birth")

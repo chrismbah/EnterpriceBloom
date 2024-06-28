@@ -7,18 +7,14 @@ import { signupSchema, SignupFormData } from "../../schema/auth/signUp";
 import { ErrorMessage } from "../form/ErrorMessage";
 import FormInput from "../form/FormInput";
 import { useDispatch } from "react-redux";
-import { useMutation } from "@tanstack/react-query";
 import { nextStep } from "../../store/slices/onboardingSlice";
-import { signup } from "../../services/auth/onboarding";
 import ReactFlagsSelect from "react-flags-select";
+import { useSignUpMutation } from "../../store/slices/apiSlices";
+import toast from "react-hot-toast";
+import ButtonLoader from "../loaders/ButtonLoader";
+import { setUser } from "../../store/slices/authSlice";
 const SignUpForm = () => {
   const dispatch = useDispatch();
-  const { mutate } = useMutation({
-    mutationFn: signup,
-    onSuccess: () => {
-      dispatch(nextStep());
-    },
-  });
   const {
     register,
     handleSubmit,
@@ -27,11 +23,23 @@ const SignUpForm = () => {
   } = useForm<SignupFormData>({
     resolver: yupResolver(signupSchema),
   });
+  const [signUp, { isLoading }] = useSignUpMutation();
 
-  const onSubmit: SubmitHandler<SignupFormData> = (data) => {
-    console.log(data);
-    mutate(data);
-    dispatch(nextStep());
+  const onSubmit: SubmitHandler<SignupFormData> = async (data) => {
+    try {
+      const response = await signUp(data);
+      const { userId } = response.data.userData;
+      const { accessToken, refreshToken } = response.data.tokens;
+      localStorage.setItem("accessToken", accessToken);
+      localStorage.setItem("refreshToken", refreshToken);
+      console.log("Registration successful:", response);
+      toast.success("Registeraton Successful");
+      dispatch(setUser({ userId, accessToken }),);
+      dispatch(nextStep());
+    } catch (error) {
+      console.error("Registration error:", error);
+      toast.error("Registeration Unsuccessful");
+    }
   };
   return (
     <form
@@ -85,10 +93,11 @@ const SignUpForm = () => {
       <div className="w-full flex flex-col gap-4 ">
         <div className="w-full flex flex-col gap-4 ">
           <button
+            disabled={isLoading}
             type="submit"
             className="w-full place-content-center font-bold bg-primary-500 text-white rounded-[8px] h-[52px] p-[8px] text-center "
           >
-            Sign Up
+            {isLoading ? <ButtonLoader /> : "Sign Up"}
           </button>
           <div className="w-full flex flex-col gap-4 ">
             <p className="w-full text-center text-[#94A5AB] font-medium text-sm">

@@ -48,7 +48,7 @@ const UserProfileInfo = () => {
         </div>
       </div>
       <div className="flex items-center gap-4 ">
-        <div className="bg-[#f5f5f5] h-[144px] w-[330px] rounded px-4 py-5 flex items-center justify-center flex-col gap-4 ">
+        <div className="bg-[#f5f5f5] h-[144px] w-[330px] rounded-lg px-4 py-5 flex items-center justify-center flex-col gap-4 ">
           <div className="w-full flex flex-col gap-1">
             <h1 className="font-bold ">Profile Update</h1>
             <p className="text-xs">
@@ -65,7 +65,7 @@ const UserProfileInfo = () => {
             />
           </div>
         </div>
-        <div className="bg-[#f5f5f5] h-[144px] w-[330px] rounded px-4 py-5 flex items-center justify-center flex-col gap-3 ">
+        <div className="bg-[#f5f5f5] h-[144px] w-[330px] rounded-lg px-4 py-5 flex items-center justify-center flex-col gap-3 ">
           <div className="w-full flex flex-col gap-3">
             <div className="flex flex-col gap-1">
               <h1 className="font-bold">Add a section</h1>

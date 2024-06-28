@@ -7,6 +7,8 @@ import SignUp from "../components/Onboarding/SignUp";
 import AboutYou from "../components/Onboarding/AboutYou";
 import Interests from "../components/Onboarding/Interests";
 import { setStep } from "../store/slices/onboardingSlice";
+import { Navigate } from "react-router-dom";
+
 const OnboardingLayout = () => {
   const { step, completed } = useSelector(
     (state: RootState) => state.onboarding
@@ -33,10 +35,10 @@ const OnboardingLayout = () => {
         return <AboutYou />;
       case 3:
         return <Interests />;
-      default:
-        return null;
     }
   };
+
+  if (step > 3) return <Navigate to="/" />;
 
   return (
     <div className="onboarding-layout flex min-h-screen w-screen overflow-x-hidden ">

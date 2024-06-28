@@ -10,6 +10,7 @@ type FormInputProps = {
   register: UseFormRegisterReturn;
   error?: FieldError;
   optionalLabel?: string;
+  className?: string;
 };
 
 const FormInput: React.FC<FormInputProps> = ({
@@ -22,7 +23,7 @@ const FormInput: React.FC<FormInputProps> = ({
   optionalLabel,
 }) => {
   return (
-    <div className="w-full">
+    <div className={`w-full `}>
       <div className="w-full flex flex-col gap-2">
         <label htmlFor={id} className="font-semibold">
           {label} <span className="text-neutral-700">{optionalLabel}</span>
@@ -35,7 +36,7 @@ const FormInput: React.FC<FormInputProps> = ({
           className={`w-full focus:outline-none border-[1.5px] rounded-[8px] ${
             error ? "border-primary-600" : "border-[#B8C5CA] "
           } h-12 py-3 px-4 
-          placeholder:text-[#B8C5CA] placeholder:text-sm text-neutral-800`}
+          placeholder:text-[#B8C5CA] placeholder:text-sm `}
         />
       </div>
       {error?.message && <ErrorMessage message={error.message} />}

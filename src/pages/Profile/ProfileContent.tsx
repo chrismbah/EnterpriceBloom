@@ -9,7 +9,7 @@ const ProfileContent = () => {
   const [activeTab, setActiveTab] = useState("posts");
 
   return (
-    <div className="user-profile-content mb-5">
+    <div className="user-profile-content">
       <ProfileTabs activeTab={activeTab} setActiveTab={setActiveTab} />
       {activeTab === "posts" && <Posts />}
       {activeTab === "followers" && <Followers />}

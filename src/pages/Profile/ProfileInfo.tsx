@@ -2,7 +2,6 @@ import cover_photo from "../../assets/svg/profile/cover_photo.svg";
 import user from "../../assets/img/feed/user.png";
 import badge from "../../assets/svg/profile/badge.svg";
 import attach from "../../assets/svg/profile/attach_red.svg";
-import progress from "../../assets/svg/profile/progress_bar.svg";
 import { ReactSVG } from "react-svg";
 import { Link } from "react-router-dom";
 const ProfileInfo = () => {
@@ -93,36 +92,6 @@ const ProfileInfo = () => {
               <Link to={"saajh82ewe21eq8whh3733hhbfw8wds88w8ew8vbdvjc"}>
                 saajh82ewe21eq8whh3733hhbfw8wds88w8ew8vbdvjc
               </Link>
-            </div>
-          </div>
-        </div>
-        <div className="flex items-center gap-4 ">
-          <div className="bg-[#f5f5f5] h-[144px] w-[330px] rounded px-4 py-5 flex items-center justify-center flex-col gap-4 ">
-            <div className="w-full flex flex-col gap-1">
-              <h1 className="font-bold ">Profile Update</h1>
-              <p className="text-xs">
-                Your profile is not complete yet, you’re left with a few tiny
-                details
-              </p>
-            </div>
-            <div>
-              <ReactSVG
-                src={progress}
-                beforeInjection={(svg) => svg.setAttribute("class", "w-full")}
-              />
-            </div>
-          </div>
-          <div className="bg-[#f5f5f5] h-[144px] w-[330px] rounded px-4 py-5 flex items-center justify-center flex-col gap-3 ">
-            <div className="w-full flex flex-col gap-3">
-              <div className="flex flex-col gap-1">
-                <h1 className="font-bold">Add a section</h1>
-                <p className="text-[#36474F] text-xs ">
-                  Add a section to your profile, to improve your profile
-                </p>
-              </div>
-              <button className="w-fit text-white rounded-[6px] bg-[#DA281C] py-2 px-4 text-xs font-semibold ">
-                Add a section
-              </button>
             </div>
           </div>
         </div>

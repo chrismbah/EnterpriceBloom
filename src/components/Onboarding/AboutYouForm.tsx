@@ -8,17 +8,10 @@ import PhoneInputWithCountry, {
 import "react-phone-number-input/style.css";
 import { ErrorMessage } from "../form/ErrorMessage";
 import { useDispatch } from "react-redux";
-import { useMutation } from "@tanstack/react-query";
 import { nextStep } from "../../store/slices/onboardingSlice";
-import { submitAboutYou } from "../../services/auth/onboarding";
+
 const AboutYouForm = () => {
   const dispatch = useDispatch();
-  const { mutate } = useMutation({
-    mutationFn: submitAboutYou,
-    onSuccess: () => {
-      dispatch(nextStep());
-    },
-  });
   const {
     register,
     handleSubmit,
@@ -29,8 +22,8 @@ const AboutYouForm = () => {
   });
 
   const onSubmit: SubmitHandler<AboutYouFormData> = (data) => {
-    console.log(data);
-    mutate(data);
+    localStorage.setItem("aboutYouData", JSON.stringify(data));
+    console.log(localStorage.getItem("aboutYouData"));
     dispatch(nextStep());
   };
 
@@ -47,6 +40,14 @@ const AboutYouForm = () => {
           type="fullName"
           register={register("fullName")}
           error={errors.fullName}
+        />{" "}
+        <FormInput
+          id="username"
+          label="Username"
+          placeholder="Enter A Username"
+          type="username"
+          register={register("username")}
+          error={errors.username}
         />
         <div className="w-full">
           <div className="w-full flex flex-col gap-2">
@@ -85,7 +86,6 @@ const AboutYouForm = () => {
             <ErrorMessage message={errors.phoneNumber?.message} />
           )}
         </div>
-
         <FormInput
           id="businessName"
           label="Business Name"
@@ -109,9 +109,8 @@ const AboutYouForm = () => {
               {...register("dateOfBirth")}
               className={`w-full border-[1.5px] focus:outline-none rounded-[8px] ${
                 errors.dateOfBirth ? "border-primary-600" : "border-[#B8C5CA]"
-              } h-12 py-3 px-4 
-                placeholder:text-[#B8C5CA] placeholder:text-sm text-neutral-800`}
-              min={new Date(1900, 0, 1).toISOString().split("T")[0]}
+              } h-12 py-3 px-4 text-sm placeholder:text-[#B8C5CA] placeholder:text-sm text-neutral-800`}
+              min={new Date(1950, 0, 1).toISOString().split("T")[0]}
               max={new Date().toISOString().split("T")[0]}
             />
           </div>

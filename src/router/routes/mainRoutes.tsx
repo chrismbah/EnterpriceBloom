@@ -6,16 +6,16 @@ export const mainRoutes: IRoutes[] = [
   {
     path: "",
     element: <HomePage />,
-    authGuard: false,
+    authGuard: true,
   },
   {
     path: "profile",
     element: <UserProfilePage />,
-    authGuard: false,
+    authGuard: true,
   },
   {
     path: "/:username",
     element: <ProfilePage />,
-    authGuard: false,
+    authGuard: true,
   },
 ];

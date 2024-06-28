@@ -1,14 +1,19 @@
 import { useState } from "react";
 import { interests } from "../../data/interests";
-import { useMutation } from "@tanstack/react-query";
-import { submitInterests } from "../../services/auth/onboarding";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { nextStep } from "../../store/slices/onboardingSlice";
+import { useCompleteProfileMutation } from "../../store/slices/apiSlices";
+import { RootState } from "../../store";
+import ButtonLoader from "../loaders/ButtonLoader";
+import toast from "react-hot-toast";
+
 const Interests = () => {
   const [selectedInterests, setSelectedInterests] = useState<string[]>([]);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const userId = useSelector((state: RootState) => state?.auth?.user?.userId);
+  const [completeProfile, { isLoading }] = useCompleteProfileMutation();
 
   // This function is for adding or removing an interest from the
   // selectedInterests array based on whether the interest is already selected
@@ -17,29 +22,31 @@ const Interests = () => {
 
   const handleSelectInterest = (interest: string) => {
     // Check if the interest is already selected
-    if (selectedInterests.includes(interest)) {
-      // If it is, remove it from the array
-      setSelectedInterests(
+    if (selectedInterests.includes(interest))
+      return setSelectedInterests(
         selectedInterests.filter((item: string) => item !== interest)
       );
-    } else {
-      // If it's not, add it to the array
-      setSelectedInterests([...selectedInterests, interest]);
-    }
+    return setSelectedInterests([...selectedInterests, interest]);
   };
 
-  const handleSubmitInterests = (data: string[]) => {
-    console.log(data);
-    mutate(data);
-    dispatch(nextStep());
-    navigate("/");
+  const handleSubmitInterests = async (data: string[]) => {
+    const aboutYouData = JSON.parse(
+      localStorage.getItem("aboutYouData") ?? "{}"
+    );
+    const profileData = { ...aboutYouData, interests: data };
+    try {
+      const response = await completeProfile({ userId, profileData });
+      if (response) {
+        localStorage.removeItem("aboutYouData");
+        toast.success("Setup Complete! Welcome to EntrepriceBloom");
+        navigate("/");
+        dispatch(nextStep());
+      }
+    } catch (error) {
+      console.error("Profile completion error:", error);
+      toast.error("Whoops! Something went wrong");
+    }
   };
-  const { mutate } = useMutation({
-    mutationFn: submitInterests,
-    onSuccess: () => {
-      navigate("/");
-    },
-  });
 
   return (
     <div className=" w-full lg:w-[80%] xl:w-[85%]">
@@ -70,7 +77,7 @@ const Interests = () => {
         onClick={() => handleSubmitInterests(selectedInterests)}
         className="w-full block place-content-center font-bold bg-primary-500 text-white rounded-[8px] h-[52px] p-[8px] text-center "
       >
-        Go to Feed
+        {isLoading ? <ButtonLoader /> : "Go to Feed"}
       </button>
     </div>
   );
