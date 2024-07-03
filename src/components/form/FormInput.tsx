@@ -35,7 +35,7 @@ const FormInput: React.FC<FormInputProps> = ({
           type={type}
           className={`w-full focus:outline-none border-[1.5px] rounded-[8px] ${
             error ? "border-primary-600" : "border-[#B8C5CA] "
-          } h-12 py-3 px-4 
+          } h-12 py-3 px-4 text-sm
           placeholder:text-[#B8C5CA] placeholder:text-sm `}
         />
       </div>

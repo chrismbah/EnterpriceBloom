@@ -23,11 +23,6 @@ export const allApiSlice = apiOne.injectEndpoints({
         body: data,
       }),
     }),
-    getInterests: builder.mutation({
-      query: () => ({
-        url: `/user/getInterest`,
-      }),
-    }),
   }),
 });
 
@@ -35,7 +30,6 @@ export const {
   useLoginMutation,
   useForgotPasswordMutation,
   useSignUpMutation,
-  useGetInterestsMutation,
 } = allApiSlice;
 
 export const authApiSlice = apiTwo.injectEndpoints({
@@ -47,7 +41,13 @@ export const authApiSlice = apiTwo.injectEndpoints({
         body: profileData,
       }),
     }),
+    getInterests: builder.mutation({
+      query: () => ({
+        url: `/user/getInterest`,
+      }),
+    }),
   }),
 });
 
-export const { useCompleteProfileMutation } = authApiSlice;
+export const { useCompleteProfileMutation, useGetInterestsMutation } =
+  authApiSlice;

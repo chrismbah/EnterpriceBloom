@@ -1,9 +1,15 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { profileSchema, ProfileFormData } from "../../schema/profile";
-import { ErrorMessage } from "../../components/form/ErrorMessage";
+import { profileSchema, ProfileFormData } from "../../../schema/profile";
+import { ErrorMessage } from "../../../components/form/ErrorMessage";
 
-const ProfileSetup = () => {
+const ProfileSetup = ({
+  showProfileSetup,
+  handleShowProfileSetup,
+}: {
+  showProfileSetup: boolean;
+  handleShowProfileSetup: (payload: boolean) => void;
+}) => {
   const {
     register,
     handleSubmit,
@@ -13,7 +19,9 @@ const ProfileSetup = () => {
   });
   const onSubmit: SubmitHandler<ProfileFormData> = (data) => {
     console.log(data);
+    handleShowProfileSetup(false);
   };
+  if (!showProfileSetup) return null;
   return (
     <div className="user_profile_setup w-full bg-white rounded-lg">
       <div className="py-8 px-8 border-b border-[#F3F4F5] ">
@@ -152,7 +160,10 @@ const ProfileSetup = () => {
             </div>
           </div>
         </div>
-        <button className="rounded-lg w-fit py-3 px-8 text-sm text-white font-bold bg-primary-500">
+        <button
+          type="submit"
+          className="rounded-lg w-fit py-3 px-8 text-sm text-white font-bold bg-primary-500"
+        >
           Save and Continue
         </button>
       </form>

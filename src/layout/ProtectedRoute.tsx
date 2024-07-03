@@ -1,26 +1,25 @@
 import { Navigate } from "react-router-dom";
+
 interface ProtectedRouteProps {
   element: JSX.Element;
 }
 
 const ProtectedRoute = ({ element }: ProtectedRouteProps) => {
-  // Temp onboarding protected route
-  const onboardingStatus = JSON.parse(
-    localStorage.getItem("onboarding") ?? "{}"
-  );
+  // Retrieve onboarding status from local storage
+  const onboardingStatus = JSON.parse(localStorage.getItem("onboarding") ?? "{}");
 
-  if (onboardingStatus.completed) {
+  // Extract step and completion status, with defaults
+  const { completed = false, step = 0 } = onboardingStatus;
+
+  // Determine if the user should be redirected home
+  const shouldRedirectHome = step > 3;
+
+  // Conditional navigation based on onboarding status
+  if (completed) {
     return element;
   }
 
-  const currentStep = onboardingStatus.step || 0;
-  const shouldRedirectToOnboarding = currentStep > 3;
-
-  return shouldRedirectToOnboarding ? (
-    <Navigate to="/" />
-  ) : (
-    <Navigate to="/onboarding" />
-  );
+  return shouldRedirectHome ? <Navigate to="/" /> : <Navigate to="/onboarding" />;
 };
 
 export default ProtectedRoute;

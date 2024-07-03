@@ -10,29 +10,35 @@ import premium from "../../assets/icons/home/side_bar/premium.svg";
 const SideNavbar = () => {
   const sideLinks = [
     { name: "Home", link: "/", icon: home },
-    { name: "Challenges", link: "/", icon: home },
-    { name: "Buzz Marketplace", link: "/", icon: marketplace },
-    { name: "Buzz Your Business", link: "/", icon: business },
-    { name: "Advertise", link: "/", icon: advertise },
-    { name: "Monetization", link: "/", icon: monetization },
-    { name: "Go Premium", link: "/", icon: premium },
-    { name: "Events", link: "/", icon: events },
+    { name: "Challenges", link: "/challenges", icon: home },
+    { name: "Buzz Marketplace", link: "/profile/messages", icon: marketplace },
+    {
+      name: "Buzz Your Business",
+      link: "/profile/notifications",
+      icon: business,
+    },
+    { name: "Advertise", link: "/advertise", icon: advertise },
+    { name: "Monetization", link: "/monetization", icon: monetization },
+    { name: "Go Premium", link: "/premium", icon: premium },
+    { name: "Events", link: "/events", icon: events },
   ];
 
   return (
     <div className="bg-white w-full rounded-lg py-8 px-7">
       <ul className="flex flex-col gap-7">
         {sideLinks.map(({ name, link, icon }, i) => (
-          <NavLink key={i} to={link}>
+          <NavLink
+            key={i}
+            to={link}
+            className={({ isActive }) =>
+              isActive
+                ? "text-red-500"
+                : "text-[#262520] hover:text-primary-500"
+            }
+          >
             <li className="flex items-center gap-2">
-              <img
-                src={icon}
-                alt={name}
-                className="w-5 h-5 active:text-primary-500 hover:text-primary-500"
-              />
-              <p className="font-semibold text-[#262520] active:text-primary-500 hover:text-primary-500">
-                {name}
-              </p>
+              <img src={icon} alt={name} className="w-5 h-5" />
+              <p className="font-semibold">{name}</p>
             </li>
           </NavLink>
         ))}

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Link } from "react-router-dom";
 import googleIcon from "../../assets/icons/google.svg";
 import facebookIcon from "../../assets/icons/facebook.svg";
@@ -27,18 +28,22 @@ const SignUpForm = () => {
 
   const onSubmit: SubmitHandler<SignupFormData> = async (data) => {
     try {
-      const response = await signUp(data);
-      const { userId } = response.data.userData;
-      const { accessToken, refreshToken } = response.data.tokens;
+      const response = await signUp(data).unwrap();
+      const { userId } = response.userData;
+      const accessToken = response.token;
       localStorage.setItem("accessToken", accessToken);
-      localStorage.setItem("refreshToken", refreshToken);
+      localStorage.setItem("userId", userId);
       console.log("Registration successful:", response);
-      toast.success("Registeraton Successful");
-      dispatch(setUser({ userId, accessToken }),);
+      toast.success("Registration Successful");
+      dispatch(setUser({ userId, accessToken }));
       dispatch(nextStep());
-    } catch (error) {
-      console.error("Registration error:", error);
-      toast.error("Registeration Unsuccessful");
+    } catch (error: any) {
+      console.log("Registration error:", error);
+      if (error?.data?.errors[0].msg) {
+        toast.error(error.data.errors[0].msg);
+      } else {
+        toast.error("Registration Unsuccessful. Please try again later.");
+      }
     }
   };
   return (

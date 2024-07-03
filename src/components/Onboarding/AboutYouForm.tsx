@@ -9,7 +9,9 @@ import "react-phone-number-input/style.css";
 import { ErrorMessage } from "../form/ErrorMessage";
 import { useDispatch } from "react-redux";
 import { nextStep } from "../../store/slices/onboardingSlice";
-
+// import { useCompleteProfileMutation } from "../../store/slices/apiSlices";
+import toast from "react-hot-toast";
+// import { useNavigate } from "react-router-dom";
 const AboutYouForm = () => {
   const dispatch = useDispatch();
   const {
@@ -20,10 +22,25 @@ const AboutYouForm = () => {
   } = useForm<AboutYouFormData>({
     resolver: yupResolver(aboutYouSchema),
   });
+  // const navigate = useNavigate();
+  // const [completeProfile, { isLoading, isError }] =
+  //   useCompleteProfileMutation();
 
-  const onSubmit: SubmitHandler<AboutYouFormData> = (data) => {
+  const onSubmit: SubmitHandler<AboutYouFormData> = async (data) => {
     localStorage.setItem("aboutYouData", JSON.stringify(data));
-    console.log(localStorage.getItem("aboutYouData"));
+    // const userId = localStorage.getItem("userId");
+    // console.log(localStorage.getItem("aboutYouData"));
+    // const { businessName, fullName, dateOfBirth, username } = data; //! PATCH REQUEST
+    try {
+      // const response = await completeProfile({ userId, profileData });
+      // if (response) {
+        // localStorage.removeItem("aboutYouData");
+        // dispatch(nextStep());
+      // }
+    } catch (error) {
+      console.error("Profile completion error:", error);
+      toast.error("Whoops! Something went wrong");
+    }
     dispatch(nextStep());
   };
 

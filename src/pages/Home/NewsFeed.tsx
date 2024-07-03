@@ -41,7 +41,7 @@ const NewsFeed = () => {
   return (
     <div className="bg-white py-6 px-4 rounded-lg w-full">
       <div className="w-full flex justify-between items-center mb-5 ">
-        <h1 className="text-lg font-bold text-black ">News Feed</h1>
+        <h1 className="text-md font-bold text-black">News Feed</h1>
         <Link to="/" className="font-bold text-primary-500 text-sm ">
           Read More
         </Link>
