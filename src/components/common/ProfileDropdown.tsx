@@ -4,14 +4,9 @@ import premium from "../../assets/icons/home/side_bar/premium.svg";
 import advertise from "../../assets/icons/home/side_bar/advertise.svg";
 import campaign from "../../assets/icons/home/side_bar/business.svg";
 import { Link } from "react-router-dom";
-const Dropdown = ({
-  user,
-}: {
-  user: {
-    name: string;
-    avatar: string;
-  };
-}) => {
+import profile from "../../assets/img/user/profile.png";
+
+const Dropdown = ({ userName }: { userName: string }) => {
   const links = [
     { label: "Run A Campaign", url: "/campaign", icon: campaign },
     { label: "Advertise", url: "/advertise", icon: advertise },
@@ -24,15 +19,15 @@ const Dropdown = ({
       <div className="w-full flex items-end justify-between pb-5 px-4 border-b border-[#F3F4F5]">
         <div className=" flex flex-col gap-1.5 ">
           <img
-            src={user.avatar}
-            alt={user.name}
+            src={profile}
+            alt={userName}
             className="w-12 h-12 rounded-full object-cover"
           />
-          <p className="font-bold text-black">{user.name}</p>
+          <p className="font-bold text-black">{userName}</p>
         </div>
         <Link
           to="/profile"
-          className="block bg-[#DA281C] text-[11px] py-[8px] px-2 text-white rounded-lg font-semibold "
+          className="block bg-[#DA281C] text-xs py-[8px] px-2 text-white rounded-lg font-semibold "
         >
           View Profile
         </Link>

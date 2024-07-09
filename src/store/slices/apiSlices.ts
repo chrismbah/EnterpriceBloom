@@ -1,6 +1,12 @@
 import { apiOne, apiTwo } from "./apiSlice";
+import {
+  CompleteProfileRequest,
+  GetInterestsResponse,
+} from "../../types/api/auth";
+import { UserData } from "../../types/user";
 
 export const allApiSlice = apiOne.injectEndpoints({
+  overrideExisting: true,
   endpoints: (builder) => ({
     signUp: builder.mutation({
       query: (userData) => ({
@@ -9,7 +15,7 @@ export const allApiSlice = apiOne.injectEndpoints({
         body: userData,
       }),
     }),
-    login: builder.mutation({
+    loginUser: builder.mutation({
       query: (data) => ({
         url: `auth/login`,
         method: "POST",
@@ -27,27 +33,33 @@ export const allApiSlice = apiOne.injectEndpoints({
 });
 
 export const {
-  useLoginMutation,
+  useLoginUserMutation,
   useForgotPasswordMutation,
   useSignUpMutation,
 } = allApiSlice;
 
 export const authApiSlice = apiTwo.injectEndpoints({
+  overrideExisting: true,
   endpoints: (builder) => ({
-    completeProfile: builder.mutation({
+    completeProfile: builder.mutation<void, CompleteProfileRequest>({
       query: ({ userId, profileData }) => ({
         url: `/user/completeProfile/${userId}`,
-        method: "PUT",
+        method: "PATCH",
         body: profileData,
       }),
     }),
-    getInterests: builder.mutation({
+    getInterests: builder.mutation<GetInterestsResponse, void>({
       query: () => ({
-        url: `/user/getInterest`,
+        url: "/user/getInterest",
+      }),
+    }),
+    getUserProfile: builder.mutation<UserData, void>({
+      query: () => ({
+        url: "/user/getProfile",
       }),
     }),
   }),
 });
 
-export const { useCompleteProfileMutation, useGetInterestsMutation } =
+export const { useCompleteProfileMutation, useGetInterestsMutation, useGetUserProfileMutation } =
   authApiSlice;

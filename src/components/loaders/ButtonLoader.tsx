@@ -1,6 +1,6 @@
 const ButtonLoader = ({ className }: { className?: string }) => {
   return (
-    <div className="w-full h-full flex justify-center items-center">
+    <div className="w-full flex justify-center items-center">
       <svg
         aria-hidden="true"
         className={`w-6 h-6 text-transparent animate-spin fill-white ${className}`}
@@ -17,7 +17,6 @@ const ButtonLoader = ({ className }: { className?: string }) => {
           fill="currentFill"
         />
       </svg>
-      <span className="sr-only">Loading...</span>
     </div>
   );
 };

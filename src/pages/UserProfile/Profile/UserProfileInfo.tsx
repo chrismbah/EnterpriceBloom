@@ -2,12 +2,15 @@ import cover_photo from "../../../assets/svg/profile/cover_photo.svg";
 import user from "../../../assets/img/feed/user.png";
 import { ReactSVG } from "react-svg";
 import progress from "../../../assets/svg/profile/progress_bar.svg";
+import { useUserProfile } from "../../../hooks/useUserProfile";
 
 const ProfileInfo = ({
   handleShowProfileSetup,
 }: {
   handleShowProfileSetup: (payload: boolean) => void;
 }) => {
+  const { userProfile } = useUserProfile();
+  if (!userProfile) return <p>Loading</p>;
   return (
     <div className="w-full rounded-lg overflow-hidden mb-5">
       <div className="w-full rounded-t-lg -mb-[1px]">
@@ -22,34 +25,34 @@ const ProfileInfo = ({
               alt="user"
             />
           </div>
-          <button className="rounded text-white bg-[#DA281C] py-2 px-4 font-bold text-sm">
+          <button
+            onClick={() => handleShowProfileSetup(true)}
+            className="rounded text-white bg-[#DA281C] py-2 px-4 font-bold text-sm"
+          >
             Edit Profile
           </button>
         </div>
-        <h1 className="font-bold text-[26px] mb-2">Leonard Victor</h1>
+        <h1 className="font-bold text-[26px] mb-2">{userProfile.fullName}</h1>
         <div className="followings flex items-center gap-7 mb-5">
           <div className="flex items-center gap-1">
             <p className="font-bold text-md">0</p>
             <span className="text-[#262520] text-sm font-semibold ">posts</span>
           </div>
           <div className="flex items-center gap-1">
-            <p className="font-bold text-md">0</p>
+            <p className="font-bold text-md">{userProfile.followers.length}</p>
             <span className="text-[#262520] text-sm font-semibold ">
               followers
             </span>
           </div>
           <div className="flex items-center gap-1">
-            <p className="font-bold text-md">0</p>
+            <p className="font-bold text-md">{userProfile.following.length}</p>
             <span className="text-[#262520] text-sm font-semibold ">
               following
             </span>
           </div>
         </div>
         <div className="flex items-center gap-4 ">
-          <div
-            onClick={() => handleShowProfileSetup(true)}
-            className="cursor-pointer bg-[#f5f5f5] h-[144px] w-[330px] rounded-lg px-4 py-5 flex items-center justify-center flex-col gap-4 "
-          >
+          <div className=" bg-[#f5f5f5] h-[144px] w-[330px] rounded-lg px-4 py-5 flex items-center justify-center flex-col gap-4 ">
             <div className="w-full flex flex-col gap-1">
               <h1 className="font-bold ">Profile Update</h1>
               <p className="text-xs">

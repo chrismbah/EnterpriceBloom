@@ -1,13 +1,20 @@
-import googleIcon from "../../assets/icons/google.svg";
-import facebookIcon from "../../assets/icons/facebook.svg";
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { loginSchema, LoginFormData } from "../../schema/auth/login";
 import { ErrorMessage } from "../../components/form/ErrorMessage";
 import { Link, useNavigate } from "react-router-dom";
-
+import { useLoginUserMutation } from "../../store/slices/apiSlices";
+import ButtonLoader from "../../components/loaders/ButtonLoader";
+import toast from "react-hot-toast";
+import { useDispatch, useSelector } from "react-redux";
+import { setUser } from "../../store/slices/authSlice";
+import { RootState } from "../../store";
 const LoginForm = () => {
   const navigate = useNavigate();
+  const [loginUser, { isLoading }] = useLoginUserMutation();
+  const dispatch = useDispatch();
+  const user = useSelector((state: RootState) => state.auth.userData);
   const {
     register,
     handleSubmit,
@@ -16,18 +23,34 @@ const LoginForm = () => {
     resolver: yupResolver(loginSchema),
   });
 
-  const onSubmit: SubmitHandler<LoginFormData> = (data) => {
-    console.log(data);
-    navigate("/");
+  const onSubmit: SubmitHandler<LoginFormData> = async (data) => {
+    try {
+      const response = await loginUser(data).unwrap();
+      console.log(response);
+      const { userId, ...userData } = response.userData;
+      const accessToken = response.token;
+      localStorage.setItem("accessToken", accessToken);
+      localStorage.setItem("userId", userId);
+      console.log("Login successful:", response);
+      toast.success("Login Successful");
+      dispatch(setUser(userData));
+      console.log(user)
+      navigate("/");
+    } catch (error: any) {
+      console.log("Registration error:", error);
+      if (error?.data?.error.message) {
+        toast.error(error.data.error.message);
+      } else {
+        toast.error("Registration Unsuccessful. Please try again later.");
+      }
+    }
   };
   return (
-    <form
-      onSubmit={handleSubmit(onSubmit)}
-      className="z-10 w-[600px] mx-5 rounded-[24px] border border-white/50 px-8 py-10 bg-gradient-to-t from-white/10 to-white/10 backdrop-blur-md 
-        "
-    >
+    <form onSubmit={handleSubmit(onSubmit)} className="w-full">
       <div className="mb-6">
-        <h1 className="font-bold text-3xl text-white mb-2">Welcome Back</h1>
+        <h1 className="font-bold text-2xl md:text-3xl text-white mb-2">
+          Welcome Back
+        </h1>
         <p className="text-white font-medium">
           Log in to your account to continue enjoying the experience
         </p>
@@ -80,24 +103,12 @@ const LoginForm = () => {
         </p>
       </Link>
       <button
+        disabled={isLoading}
         type="submit"
         className="mb-3 w-full block place-content-center font-bold bg-primary-500 text-white rounded-[8px] h-[52px] p-[8px] text-center "
       >
-        Log In
+        {isLoading ? <ButtonLoader /> : "Log In"}
       </button>
-      <div className="flex flex-col gap-3 items-center justify-center">
-        <p className="text-sm font-medium text-white">Or log in with</p>
-        <div className="w-full flex flex-col items-center gap-4 ">
-          <button className="w-full flex items-center justify-center gap-[10px] text-[#262520] font-bold bg-[#F3F4F5] h-[52px] p-[8px] text-center rounded-[8px]">
-            <img src={googleIcon} alt="Google" className="w-6 h-6" />{" "}
-            <span>Google</span>
-          </button>
-          <button className="w-full flex items-center justify-center gap-[10px] text-[#262520] font-bold bg-[#F3F4F5] h-[52px] p-[8px] text-center rounded-[8px]">
-            <img src={facebookIcon} alt="Facebook" className="w-6 h-6" />{" "}
-            <span>Facebook</span>
-          </button>
-        </div>
-      </div>
     </form>
   );
 };

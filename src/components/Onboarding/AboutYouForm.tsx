@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { aboutYouSchema, AboutYouFormData } from "../../schema/auth/aboutYou";
@@ -9,9 +10,10 @@ import "react-phone-number-input/style.css";
 import { ErrorMessage } from "../form/ErrorMessage";
 import { useDispatch } from "react-redux";
 import { nextStep } from "../../store/slices/onboardingSlice";
-// import { useCompleteProfileMutation } from "../../store/slices/apiSlices";
+import { useCompleteProfileMutation } from "../../store/slices/apiSlices";
 import toast from "react-hot-toast";
-// import { useNavigate } from "react-router-dom";
+import ButtonLoader from "../loaders/ButtonLoader";
+
 const AboutYouForm = () => {
   const dispatch = useDispatch();
   const {
@@ -22,26 +24,23 @@ const AboutYouForm = () => {
   } = useForm<AboutYouFormData>({
     resolver: yupResolver(aboutYouSchema),
   });
-  // const navigate = useNavigate();
-  // const [completeProfile, { isLoading, isError }] =
-  //   useCompleteProfileMutation();
+  const [completeProfile, { isLoading }] = useCompleteProfileMutation();
 
   const onSubmit: SubmitHandler<AboutYouFormData> = async (data) => {
-    localStorage.setItem("aboutYouData", JSON.stringify(data));
-    // const userId = localStorage.getItem("userId");
-    // console.log(localStorage.getItem("aboutYouData"));
-    // const { businessName, fullName, dateOfBirth, username } = data; //! PATCH REQUEST
+    const userId = localStorage.getItem("userId");
+    if (!userId) return toast.error("User ID not found");
     try {
-      // const response = await completeProfile({ userId, profileData });
-      // if (response) {
-        // localStorage.removeItem("aboutYouData");
-        // dispatch(nextStep());
-      // }
-    } catch (error) {
+      await completeProfile({ userId, profileData: data }).unwrap();
+      toast.success("Profile completed successfully!");
+      dispatch(nextStep()); // Navigate to the next onboarding step
+    } catch (error: any) {
+      if (error.data.errors[0].msg) {
+        toast.error(error.data.errors[0].msg);
+      } else {
+        toast.error("Whoops! Something went wrong");
+      }
       console.error("Profile completion error:", error);
-      toast.error("Whoops! Something went wrong");
     }
-    dispatch(nextStep());
   };
 
   return (
@@ -89,7 +88,7 @@ const AboutYouForm = () => {
                   numberInputProps={{
                     className: "focus:outline-none h-12 py-3 px-4 ", // my Tailwind classes
                   }}
-                  className={`w-full focus:outline-none border-[1.5px] bg-[#f4f4f4] rounded-[8px] overflow-hidden pl-4 ${
+                  className={`w-full focus:outline-none text-sm border-[1.5px] bg-[#f4f4f4] rounded-[8px] overflow-hidden pl-4 ${
                     errors.phoneNumber
                       ? "border-primary-600"
                       : "border-[#B8C5CA]"
@@ -137,10 +136,11 @@ const AboutYouForm = () => {
         </div>
       </div>
       <button
+        disabled={isLoading}
         type="submit"
         className="w-full place-content-center font-bold bg-primary-500 text-white rounded-[8px] h-[52px] p-[8px] text-center "
       >
-        Proceed
+        {isLoading ? <ButtonLoader /> : "Proceed"}
       </button>
     </form>
   );

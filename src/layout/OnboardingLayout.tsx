@@ -41,9 +41,9 @@ const OnboardingLayout = () => {
   if (step > 3) return <Navigate to="/" />;
 
   return (
-    <div className="onboarding-layout flex min-h-screen w-screen overflow-x-hidden ">
+    <div className="onboarding-layout flex h-screen overflow-y-hidden ">
       <div
-        className="slider-section hidden mlg:flex mlg:w-[40%] bg-primary-500 min-h-screen z-10
+        className="slider-section hidden mlg:flex mlg:w-[40%] bg-primary-500 h-screen z-10
           lg:flex items-center flex-col justify-center"
       >
         <img
@@ -54,8 +54,8 @@ const OnboardingLayout = () => {
         <OnboardingSlider />
       </div>
       <div
-        className="h-screen overflow-y-auto hide-scrollbar overflow-x-hidden 
-         w-full mlg:w-[60%] flex flex-col pt-7 md:pt-10 lg:pt-[68px] pb-7 lg:pb-[45px] px-4 md:px-7 lg:px-[50px] xl:px-9"
+        className="h-screen overflow-y-auto hide-scrollbar
+         w-full mlg:w-[60%] flex flex-col pt-7 md:pt-10 lg:pt-[68px] pb-7 lg:pb-[45px] px-4 md:px-7 lg:pl-7 xl:pl-8"
       >
         {renderStep()}
       </div>
