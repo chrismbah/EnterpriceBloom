@@ -1,12 +1,12 @@
 import { useEffect } from "react";
 import { ReactSVG } from "react-svg";
-import userImg from "../../../../assets/img/feed/user.png";
-import arrowDown from "../../../../assets/icons/home/feed/arrowDropdown.svg";
-import cancel from "../../../../assets/icons/home/feed/cancel_black.svg";
-import publicIcon from "../../../../assets/icons/home/feed/public.svg";
-import emoji from "../../../../assets/icons/home/feed/emoji.svg";
-import gallery from "../../../../assets/icons/home/feed/gallery.svg";
-import add from "../../../../assets/icons/home/feed/add_grey.svg";
+import userImg from "../../../assets/img/feed/user.png";
+import arrowDown from "../../../assets/icons/home/feed/arrowDropdown.svg";
+import cancel from "../../../assets/icons/home/feed/cancel_black.svg";
+import publicIcon from "../../../assets/icons/home/feed/public.svg";
+import emoji from "../../../assets/icons/home/feed/emoji.svg";
+import gallery from "../../../assets/icons/home/feed/gallery.svg";
+import add from "../../../assets/icons/home/feed/add_grey.svg";
 interface CreatePostModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -30,7 +30,7 @@ export const CreatePostModal = ({ isOpen, onClose }: CreatePostModalProps) => {
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="bg-white w-[45%] max-w-[980px] rounded-[20px] overflow-hidden px-6 py-8"
+        className="bg-white w-[45%] max-w-[980px] rounded-lg overflow-hidden px-6 py-8"
       >
         <div className="w-full flex justify-between items-start mb-8">
           <div className="flex items-center gap-2">
@@ -70,7 +70,7 @@ export const CreatePostModal = ({ isOpen, onClose }: CreatePostModalProps) => {
         </div>
         <textarea
           name="post"
-          className="w-full h-[280px] resize-none focus:outline-none placeholder:text-[#B8C5CA] placeholder:font-semibold "
+          className="w-full h-[280px] font-medium resize-none focus:outline-none placeholder:text-[#B8C5CA] placeholder:font-semibold "
           placeholder="What do you want to share"
         ></textarea>
         <div className="w-full pb-4 border-b border-[#E7EAEB] mb-8">

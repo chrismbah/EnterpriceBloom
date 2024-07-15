@@ -6,6 +6,7 @@ export const AppToaster = () => {
         background: "green",
         color: "#fff",
         textTransform: "capitalize",
+        fontSize: "13px",
       },
     },
     error: {
@@ -13,6 +14,7 @@ export const AppToaster = () => {
         background: "#DA281C",
         color: "#fff",
         textTransform: "capitalize",
+        fontSize: "13px",
       },
     },
   };

@@ -4,7 +4,7 @@ import critique from "../../assets/icons/action_bar/critique.png";
 import great from "../../assets/icons/action_bar/great.png";
 import bad from "../../assets/icons/action_bar/bad.png";
 import video from "../../assets/icons/action_bar/video.png";
-import { CreatePostModal } from "../../pages/Home/HomeFeed/MainFeed/CreatePostModal";
+import { CreatePostModal } from "../../pages/Home/components/CreatePostModal";
 import { useState } from "react";
 
 const ActionBar = () => {

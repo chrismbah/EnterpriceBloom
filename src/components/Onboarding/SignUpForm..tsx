@@ -13,7 +13,6 @@ import ReactFlagsSelect from "react-flags-select";
 import { useSignUpMutation } from "../../store/slices/apiSlices";
 import toast from "react-hot-toast";
 import ButtonLoader from "../loaders/ButtonLoader";
-import { setUser, } from "../../store/slices/authSlice";
 const SignUpForm = () => {
   const dispatch = useDispatch();
   const {
@@ -29,13 +28,12 @@ const SignUpForm = () => {
   const onSubmit: SubmitHandler<SignupFormData> = async (data) => {
     try {
       const response = await signUp(data).unwrap();
-      const { userId, ...userData } = response.userData;
+      const { userId } = response.userData;
       const accessToken = response.token;
       localStorage.setItem("accessToken", accessToken);
       localStorage.setItem("userId", userId);
       console.log("Registration successful:", response);
       toast.success("Registration Successful");
-      dispatch(setUser(userData));
       dispatch(nextStep());
     } catch (error: any) {
       console.log("Registration error:", error);

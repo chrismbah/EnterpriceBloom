@@ -12,15 +12,16 @@ export const useUserProfile = () => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await getUserProfile().unwrap();
-        console.log(response);
-        dispatch(setUser(response));
+        const user = await getUserProfile().unwrap();
+        console.log(user);
+        dispatch(setUser(user));
         console.log("Fetched user profile")
       } catch (err) {
         console.log(err);
       }
     };
     if (!userProfile) fetchUserData();
+    console.log(userProfile)
   }, [dispatch, getUserProfile, userProfile]);
 
   return { userProfile, isError, isLoading };

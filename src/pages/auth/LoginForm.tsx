@@ -34,7 +34,14 @@ const LoginForm = () => {
       console.log("Login successful:", response);
       toast.success("Login Successful");
       dispatch(setUser(userData));
-      console.log(user)
+      console.log(user);
+      localStorage.setItem(
+        "onboarding",
+        JSON.stringify({
+          step: 4,
+          completed: true,
+        })
+      );
       navigate("/");
     } catch (error: any) {
       console.log("Registration error:", error);
