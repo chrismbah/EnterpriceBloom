@@ -4,13 +4,13 @@ import critique from "../../assets/icons/action_bar/critique.png";
 import great from "../../assets/icons/action_bar/great.png";
 import bad from "../../assets/icons/action_bar/bad.png";
 import video from "../../assets/icons/action_bar/video.png";
-import { CreatePostModal } from "../../pages/Home/HomeFeed/Post/CreatePostModal";
+import { CreatePostModal } from "../../pages/Home/HomeFeed/MainFeed/CreatePostModal";
 import { useState } from "react";
 
 const ActionBar = () => {
   const [isCreatePostModalOpen, setIsCreatePostModalOpen] = useState(false);
   return (
-    <div className="w-full flex items-center justify-center gap-6 py-2.5 bg-white ">
+    <div className="w-full flex items-center justify-center gap-6 py-2.5 bg-white">
       <div className="flex items-center gap-[10px]">
         <button className="p-px flex items-center justify-center w-[104px] h-[42px] bg-[linear-gradient(98.14deg,#549C30_7.3%,#FFCC00_112.59%)] rounded ">
           <div className="gradient-border bg-white flex items-center justify-center gap-[6px] rounded-[calc(4px-1px)] w-full h-full ">

@@ -11,7 +11,7 @@ const SideNavbar = () => {
   const sideLinks = [
     { name: "Home", link: "/", icon: home },
     { name: "Challenges", link: "/challenges", icon: home },
-    { name: "Buzz Marketplace", link: "/profile/messages", icon: marketplace },
+    { name: "Buzz Marketplace", link: "/marketplace", icon: marketplace },
     {
       name: "Buzz Your Business",
       link: "/profile/notifications",

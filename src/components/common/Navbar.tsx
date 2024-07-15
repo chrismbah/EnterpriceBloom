@@ -72,7 +72,6 @@ const Navbar = () => {
       <div className="max-w-screen-xl mx-auto">
         {/* Navigation bar */}
         <div className=" w-full z-10 flex items-center justify-between h-[90px]  ">
-          {/* Logo */}
           <Link to="/">
             <img
               src={logo}

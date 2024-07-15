@@ -2,7 +2,7 @@ import OnboardingLayout from "../../layout/OnboardingLayout";
 import MainLayout from "../../layout/MainLayout";
 import Login from "../../pages/auth/Login";
 import ForgotPassword from "../../pages/auth/ForgotPassword";
-import { mainRoutes } from "./mainRoutes";
+import { mainRoutes } from "./main";
 export interface IRoutes {
   path: string;
   element: JSX.Element;

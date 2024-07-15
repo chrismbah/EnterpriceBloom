@@ -1,12 +1,23 @@
-import { useState } from "react";
-const ContentSelection = () => {
+import { useState, useEffect } from "react";
+const ContentSelection = ({
+  onSelect,
+}: {
+  onSelect: (payload: "interests" | "memes" | "hacks") => void;
+}) => {
+
   const [selected, setSelected] = useState("");
 
-  const handleClick = (option: string) => {
+  const handleClick = (option: "interests" | "memes" | "hacks") => {
     setSelected(option);
+    onSelect(option);
   };
+  useEffect(() => {
+    if (selected) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, [selected]);
   return (
-    <div className="content-selection flex items-center justify-center mt-5">
+    <div className="content-selection w-full flex items-center justify-center py-5 bg-[#f5f5f5] ">
       <button
         className={`px-7 py-2 text-sm border border-[#94A5AB] rounded-l-[32px]  font-semibold  ${
           selected === "interests"

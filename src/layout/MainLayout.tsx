@@ -5,11 +5,11 @@ import { Outlet } from "react-router-dom";
 const MainLayout = () => {
   return (
     <>
-      <div className="sticky top-0 z-10 ">
+      <div className="sticky top-0 z-10">
         <Navbar />
         <ActionBar />
       </div>
-      <div className="w-full bg-[#f5f5f5]">
+      <div className="bg-[#f5f5f5] min-h-full">
         <div className="max-w-screen-xl mx-auto">
           <Outlet />
         </div>

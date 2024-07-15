@@ -1,9 +1,9 @@
 import { useState } from "react";
-import challenge1 from "../../assets/svg/home/challenge1.svg";
-import challenge2 from "../../assets/svg/home/challenge2.svg";
-import challenge3 from "../../assets/svg/home/challenge3.svg";
-import challenge4 from "../../assets/svg/home/challenge4.svg";
-import challenge5 from "../../assets/svg/home/challenge5.svg";
+import challenge1 from "../../../assets/svg/home/challenge1.svg";
+import challenge2 from "../../../assets/svg/home/challenge2.svg";
+import challenge3 from "../../../assets/svg/home/challenge3.svg";
+import challenge4 from "../../../assets/svg/home/challenge4.svg";
+import challenge5 from "../../../assets/svg/home/challenge5.svg";
 import { Link } from "react-router-dom";
 const BuzzChallenges = () => {
   const [selectOption, setSelectOption] = useState<"open" | "completed">(

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { PostProps } from ".";
+import { PostProps } from "./Post";
 import { ReactSVG } from "react-svg";
 import comments from "../../../../assets/icons/home/feed/comment_red.svg";
 import cancel from "../../../../assets/icons/home/feed/cancel_black.svg";

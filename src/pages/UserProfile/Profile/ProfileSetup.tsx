@@ -22,6 +22,7 @@ const ProfileSetup = ({
     handleShowProfileSetup(false);
   };
   if (!showProfileSetup) return null;
+  
   return (
     <div className="user_profile_setup w-full bg-white rounded-lg">
       <div className="py-8 px-8 border-b border-[#F3F4F5] ">

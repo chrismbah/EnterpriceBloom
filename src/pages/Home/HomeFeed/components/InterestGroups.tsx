@@ -1,10 +1,10 @@
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import group1 from "../../../assets/img/feed/group1.png";
-import group2 from "../../../assets/img/feed/group2.png";
-import group3 from "../../../assets/img/feed/group3.png";
-import arrowLeft from "../../../assets/icons/home/arrowLeft.svg";
-import arrowRight from "../../../assets/icons/home/arrowRight.svg";
+import group1 from "../../../../assets/img/feed/group1.png";
+import group2 from "../../../../assets/img/feed/group2.png";
+import group3 from "../../../../assets/img/feed/group3.png";
+import arrowLeft from "../../../../assets/icons/home/arrowLeft.svg";
+import arrowRight from "../../../../assets/icons/home/arrowRight.svg";
 import { ButtonGroupProps } from "react-multi-carousel/lib/types";
 
 const ButtonGroup = ({ next, previous }: ButtonGroupProps) => {

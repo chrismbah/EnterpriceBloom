@@ -11,7 +11,7 @@ export const profileSchema = yup.object({
   username: yup
     .string()
     .matches(
-      /^[a-zA-Z0-9_]+$/,
+      /^[/w]+$/,
       "Username must only contain letters, numbers, and underscores"
     )
     .min(4, "Username must be at least 4 characters long")

@@ -1,22 +1,30 @@
-import ContentSelection from "./ContentSelection";
+import ContentSelection from "./components/ContentSelection";
 import SideNavbar from "../../components/common/SideNavbar";
-import PopularTags from "./PopularTags";
-import UtilityLinks from "./UtilityLinks";
-import NewsFeed from "./NewsFeed";
-import SponsoredPosts from "./SponsoredPosts";
-import Buzzcussions from "./Buzzcussions";
-import TopSearches from "./TopSearches";
-import BuzzChallenges from "./BuzzChallenges";
-import CreateAd from "./CreateAd";
+import PopularTags from "./components/PopularTags";
+import UtilityLinks from "./components/UtilityLinks";
+import NewsFeed from "./components/NewsFeed";
+import SponsoredPosts from "./components/SponsoredPosts";
+import Buzzcussions from "./components/Buzzcussions";
+import TopSearches from "./components/TopSearches";
+import BuzzChallenges from "./components/BuzzChallenges";
+import CreateAd from "./components/CreateAd";
 import HomeFeed from "./HomeFeed";
-
+import { useState } from "react";
 const HomePage = () => {
+  const [selectedContent, setSelectedContent] = useState<
+    "interests" | "memes" | "hacks" | null
+  >(null);
+
+  const handleContentSelection = (option: "interests" | "memes" | "hacks") => {
+    setSelectedContent(option);
+  };
+
   return (
     <>
-      <div className="flex items-center justify-center ">
-        <ContentSelection />
+      <div className="sticky top-[159px] z-[2] flex items-center justify-center ">
+        <ContentSelection onSelect={handleContentSelection} />
       </div>
-      <div className="flex gap-4 mt-5">
+      <div className="flex gap-4">
         <div className="basis-[25%]">
           <div className="w-full items-center flex flex-col gap-4 mb-5">
             <SideNavbar />
@@ -26,7 +34,7 @@ const HomePage = () => {
         </div>
         <div className="basis-1/2">
           <div className="home_feed w-full items-center flex flex-col gap-4 mb-5">
-            <HomeFeed />
+            <HomeFeed content={selectedContent} />
           </div>
         </div>
         <div className="basis-[28%]">

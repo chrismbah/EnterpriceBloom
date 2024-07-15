@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import feed1 from "../../assets/img/feed/1340be3ac76cb86bdf5bf96270288558.png";
-import feed2 from "../../assets/img/feed/ed5a00c9a834d28d61fd51bf776bc88f.png";
-import feed3 from "../../assets/img/feed/9c89ea3face241526c9d66e1ae2e743a.png";
-import feed4 from "../../assets/img/feed/f9d9bece6187a433d91cf0d91dbf0e23.png";
+import feed1 from "../../../assets/img/feed/1340be3ac76cb86bdf5bf96270288558.png";
+import feed2 from "../../../assets/img/feed/ed5a00c9a834d28d61fd51bf776bc88f.png";
+import feed3 from "../../../assets/img/feed/9c89ea3face241526c9d66e1ae2e743a.png";
+import feed4 from "../../../assets/img/feed/f9d9bece6187a433d91cf0d91dbf0e23.png";
 const TopSearches = () => {
   const searches = [
     {

@@ -15,13 +15,13 @@ export const useUserProfile = () => {
         const response = await getUserProfile().unwrap();
         console.log(response);
         dispatch(setUser(response));
+        console.log("Fetched user profile")
       } catch (err) {
         console.log(err);
       }
     };
-
-    fetchUserData();
-  }, [dispatch, getUserProfile]);
+    if (!userProfile) fetchUserData();
+  }, [dispatch, getUserProfile, userProfile]);
 
   return { userProfile, isError, isLoading };
 };

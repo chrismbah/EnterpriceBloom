@@ -4,7 +4,7 @@ import postImg2 from "../assets/img/feed/post.png";
 import user1 from "../assets/img/feed/user1.png";
 import user2 from "../assets/img/feed/user2.png";
 
-export const posts = [
+export const memes = [
     {
       userImg,
       username: "Leonard Victor",

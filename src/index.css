@@ -5,6 +5,7 @@
 
 *{
     font-family: "Inter", sans-serif, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana;
+    scroll-behavior: smooth;
 }
 
 input[type="search"]::-webkit-search-cancel-button {

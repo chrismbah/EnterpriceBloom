@@ -4,6 +4,7 @@ import ProfilePage from "../../pages/Profile";
 import Notifications from "../../pages/UserProfile/Notifications";
 import Messages from "../../pages/UserProfile/Messages";
 import Profile from "../../pages/UserProfile/Profile";
+import MarketPlace from "../../pages/Home/MarketPlace";
 import { IRoutes } from ".";
 export const mainRoutes: IRoutes[] = [
   {
@@ -32,6 +33,11 @@ export const mainRoutes: IRoutes[] = [
         authGuard: true,
       },
     ],
+  },
+  {
+    path: "marketplace",
+    element: <MarketPlace />,
+    authGuard: true,
   },
   {
     path: "/:username",

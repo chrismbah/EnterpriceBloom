@@ -1,5 +1,5 @@
-import NewsFeed from "../Home/NewsFeed";
-import CreateAd from "../Home/CreateAd";
+import NewsFeed from "../Home/components/NewsFeed";
+import CreateAd from "../Home/components/CreateAd";
 import { Outlet } from "react-router-dom";
 const UserProfilePage = () => {
   return (

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { ReactSVG } from "react-svg";
-import search from "../../assets/icons/home/search.svg";
+import search from "../../../assets/icons/home/search.svg";
 
 const Buzzcussions = () => {
   const discussions = [

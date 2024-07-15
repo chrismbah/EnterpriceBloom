@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import feed1 from "../../assets/img/feed/1340be3ac76cb86bdf5bf96270288558.png";
-import feed2 from "../../assets/img/feed/9c89ea3face241526c9d66e1ae2e743a.png";
+import feed1 from "../../../assets/img/feed/1340be3ac76cb86bdf5bf96270288558.png";
+import feed2 from "../../../assets/img/feed/9c89ea3face241526c9d66e1ae2e743a.png";
 const SponsoredPosts = () => {
   const sponsored = [
     {

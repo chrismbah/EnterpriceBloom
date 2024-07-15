@@ -1,22 +1,28 @@
-import FeaturedExperts from "./FeaturedExperts";
-import Post from "./Post";
-import InterestGroups from "./InterestGroups";
-import { posts } from "../../../data/posts";
-import { Fragment } from "react";
+import HacksFeed from "./Hacks";
+import InterestsFeed from "./Interests";
+import MemesFeed from "./Memes";
+import MainFeed from "./MainFeed";
 
-const HomeFeed = () => {
-  const midpoint = Math.floor(posts.length / 2);
-  return (
-    <div className="w-full flex flex-col gap-5">
-      <FeaturedExperts />
-      {posts.map((data, index) => (
-        <Fragment key={index}>
-          <Post {...data} />
-          {index === midpoint - 1 && <InterestGroups />}
-        </Fragment>
-      ))}
-    </div>
-  );
+const HomeFeed = ({
+  content,
+}: {
+  content: "interests" | "memes" | "hacks" | null;
+}) => {
+  let FeedComponent: () => JSX.Element;
+  switch (content) {
+    case "interests":
+      FeedComponent = InterestsFeed;
+      break;
+    case "memes":
+      FeedComponent = MemesFeed;
+      break;
+    case "hacks":
+      FeedComponent = HacksFeed;
+      break;
+    default:
+      FeedComponent = MainFeed;
+  }
+  return <FeedComponent />;
 };
 
 export default HomeFeed;
