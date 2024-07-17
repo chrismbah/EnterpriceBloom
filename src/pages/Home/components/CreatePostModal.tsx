@@ -24,13 +24,13 @@ export const CreatePostModal = ({ isOpen, onClose }: CreatePostModalProps) => {
   }, [isOpen]);
   if (!isOpen) return null;
   return (
-    <div
+    <button
       onClick={onClose}
-      className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+      className="cursor-auto fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
     >
-      <div
+      <button
         onClick={(e) => e.stopPropagation()}
-        className="bg-white w-[45%] max-w-[980px] rounded-lg overflow-hidden px-6 py-8"
+        className="cursor-auto bg-white w-[45%] max-w-[980px] rounded-lg overflow-hidden px-6 py-8"
       >
         <div className="w-full flex justify-between items-start mb-8">
           <div className="flex items-center gap-2">
@@ -100,7 +100,7 @@ export const CreatePostModal = ({ isOpen, onClose }: CreatePostModalProps) => {
             Post
           </button>
         </div>
-      </div>
-    </div>
+      </button>
+    </button>
   );
 };

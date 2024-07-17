@@ -7,7 +7,6 @@ import {
 } from "../../store/slices/apiSlices";
 import ButtonLoader from "../loaders/ButtonLoader";
 import toast from "react-hot-toast";
-import { UserProfileData } from "../../types";
 
 interface Interest {
   _id: string;
@@ -48,7 +47,7 @@ const Interests = () => {
       return;
     }
     try {
-      const profileData: UserProfileData = { interests };
+      const profileData = { interests };
       await completeProfile({
         userId,
         profileData,
