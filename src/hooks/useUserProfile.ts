@@ -4,6 +4,7 @@ import { useGetUserProfileMutation } from "../store/slices/apiSlices";
 import { setUser } from "../store/slices/authSlice";
 import { RootState } from "../store";
 
+
 export const useUserProfile = () => {
   const dispatch = useDispatch();
   const [getUserProfile, { isLoading, isError }] = useGetUserProfileMutation();
@@ -15,13 +16,13 @@ export const useUserProfile = () => {
         const user = await getUserProfile().unwrap();
         console.log(user);
         dispatch(setUser(user));
-        console.log("Fetched user profile")
+        console.log("Fetched user profile");
       } catch (err) {
         console.log(err);
       }
     };
     if (!userProfile) fetchUserData();
-    console.log(userProfile)
+    console.log(userProfile);
   }, [dispatch, getUserProfile, userProfile]);
 
   return { userProfile, isError, isLoading };

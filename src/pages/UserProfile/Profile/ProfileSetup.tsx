@@ -22,7 +22,7 @@ const ProfileSetup = ({
     handleShowProfileSetup(false);
   };
   if (!showProfileSetup) return null;
-  
+
   return (
     <div className="user_profile_setup w-full bg-white rounded-lg">
       <div className="py-8 px-8 border-b border-[#F3F4F5] ">
@@ -43,9 +43,12 @@ const ProfileSetup = ({
                 id={"bio"}
                 {...register("bio")}
                 className={`w-full resize-none h-[259px] focus:outline-none border border-[#D9D9D9] rounded-[8px] 
-                   p-4 placeholder:text-[#7D7D7D] placeholder:text-sm text-neutral-800 text-sm`}
+                  p-4 placeholder:text-[#7D7D7D] placeholder:text-sm text-neutral-800 text-sm`}
               />
             </div>
+            {errors.bio?.message && (
+              <ErrorMessage message={errors.bio?.message} />
+            )}
           </div>
           <div className="profile_fields flex flex-col gap-8">
             <div className="flex gap-3">
@@ -124,16 +127,16 @@ const ProfileSetup = ({
                   <input
                     placeholder="Enter your website link"
                     id={"websiteUrl"}
-                    {...register("websiteUrl")}
+                    {...register("url")}
                     className={`w-full focus:outline-none border-[1px] rounded-[8px] ${
-                      errors.websiteUrl
+                      errors.url
                         ? "border-primary-600"
                         : "border-[#D9D9D9] "
                     } h-12 py-3 px-4 text-sm placeholder:font-medium placeholder:text-[#7D7D7D] placeholder:text-sm`}
                   />
                 </div>
-                {errors.websiteUrl?.message && (
-                  <ErrorMessage message={errors.websiteUrl.message} />
+                {errors.url?.message && (
+                  <ErrorMessage message={errors.url.message} />
                 )}
               </div>
             </div>

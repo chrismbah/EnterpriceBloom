@@ -33,7 +33,7 @@ const ProfileInfo = () => {
         </div>
         <div className="w-full flex flex-col mb-2">
           <h1 className="font-bold text-[26px]">Leonard Victor</h1>
-          <span className="text-md font-semibold text-[#36474F]">
+          <span className="font-semibold text-[#36474F]">
             @Lheonard
           </span>
         </div>

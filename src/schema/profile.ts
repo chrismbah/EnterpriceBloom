@@ -1,7 +1,13 @@
 import * as yup from "yup";
 
 export const profileSchema = yup.object({
-  bio: yup.string(),
+  bio: yup
+    .string()
+    .test("word-count", "Bio must be between 10 and 150 words", (value) => {
+      if (!value) return true; // Bio is not required, so allow empty value
+      const wordCount = value.trim().split(/\s+/).length;
+      return wordCount >= 10 && wordCount <= 150;
+    }),
   dateOfBirth: yup
     .date()
     // .transform((value, originalValue) => (originalValue === "" ? null : value))
@@ -11,14 +17,14 @@ export const profileSchema = yup.object({
   username: yup
     .string()
     .matches(
-      /^[/w]+$/,
+      /^\w+$/,
       "Username must only contain letters, numbers, and underscores"
     )
     .min(4, "Username must be at least 4 characters long")
     .max(20, "Username cannot be more than 20 characters long")
     .required("Enter your username"),
   occupation: yup.string(),
-  websiteUrl: yup.string().url("Invalid URL format"),
+  url: yup.string().url("Invalid URL format"),
   companyName: yup.string(),
 });
 

@@ -9,6 +9,12 @@ export interface UserData {
   interests: string[]; // or array of Interest type if applicable
   followers: string[]; // or array of Follower type if applicable
   following: string[]; // or array of Following type if applicable
+  bio?: string;
+  company?: string;
+  occupation?: string;
+  url1?: string;
+  url2?: string;
+  username: string;
 }
 
 export interface UserProfile {

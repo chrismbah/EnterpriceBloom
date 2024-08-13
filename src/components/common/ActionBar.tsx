@@ -9,20 +9,48 @@ import { useState } from "react";
 
 const ActionBar = () => {
   const [isCreatePostModalOpen, setIsCreatePostModalOpen] = useState(false);
+  const [feedType, setFeedType] = useState<string>("");
+  const FEED_TYPES = [
+    {
+      name: "Critique",
+      img: critique,
+      bg: "bg-[linear-gradient(98.14deg,#549C30_7.3%,#FFCC00_112.59%)]",
+    },
+    {
+      name: "Great",
+      img: great,
+      bg: "bg-[linear-gradient(98.14deg,#549C30_7.3%,#FFCC00_112.59%)]",
+    },
+    {
+      name: "Bad",
+      img: bad,
+      bg: "bg-[linear-gradient(98.34deg,#549C30_-18.86%,#DA281C_112.59%)]",
+    },
+    {
+      name: "Video",
+      img: video,
+      bg: "bg-[linear-gradient(98.14deg,#DA281C_7.3%,#FFCC00_112.59%)]",
+    },
+  ];
   return (
     <div className="w-full flex items-center justify-center gap-6 py-2.5 bg-white">
       <div className="flex items-center gap-[10px]">
-        <button className="p-px flex items-center justify-center w-[104px] h-[42px] bg-[linear-gradient(98.14deg,#549C30_7.3%,#FFCC00_112.59%)] rounded ">
-          <div className="gradient-border bg-white flex items-center justify-center gap-[6px] rounded-[calc(4px-1px)] w-full h-full ">
-            <img
-              src={critique}
-              alt="critique"
-              className="w-[24px] h-[24px] object-cover "
-            />
-            <p className="font-semibold">Critique</p>
-          </div>
-        </button>
-        <button className="p-px flex items-center justify-center w-[104px] h-[42px] bg-[linear-gradient(98.14deg,#549C30_7.3%,#FFCC00_112.59%)] rounded ">
+        {FEED_TYPES.map(({ name, img, bg }) => (
+          <button onClick={()=>setFeedType(name)}
+            key={name}
+            className={`p-px flex items-center justify-center w-[104px] h-[42px] ${bg} rounded `}
+          >
+            <div className={`gradient-border  ${feedType === name ? "bg-[#DA281C] text-white" : "bg-white"} flex items-center justify-center gap-[6px] rounded-[calc(4px-1px)] w-full h-full `}>
+              <img
+                src={img}
+                alt="critique"
+                className="w-[24px] h-[24px] object-cover "
+              />
+              <p className="font-semibold">{name}</p>
+            </div>
+          </button>
+        ))}
+        {/* <button className="p-px flex items-center justify-center w-[104px] h-[42px] bg-[linear-gradient(98.14deg,#549C30_7.3%,#FFCC00_112.59%)] rounded ">
           <div className="gradient-border bg-white flex items-center justify-center gap-[6px] rounded-[calc(4px-1px)] w-full h-full ">
             <img
               src={great}
@@ -51,7 +79,7 @@ const ActionBar = () => {
             />
             <p className="font-semibold">Video</p>
           </div>
-        </button>
+        </button> */}
         <button className="bg-[#F4F4F4] h-[44px] px-5 flex items-center justify-center gap-[6px] rounded">
           <p className="font-semibold text-black ">Expand</p>
           <ArrowDownIcon className="w-4 h-4 text-[#1C1B1F] " />
