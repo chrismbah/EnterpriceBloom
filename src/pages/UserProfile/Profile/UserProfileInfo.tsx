@@ -13,6 +13,7 @@ const ProfileInfo = ({
 }) => {
   const { userProfile } = useUserProfile();
   if (!userProfile) return <p>Loading</p>;
+  console.log(userProfile)
   return (
     <div className="w-full rounded-lg overflow-hidden mb-5">
       <div className="w-full rounded-t-lg -mb-[1px]">
@@ -36,9 +37,9 @@ const ProfileInfo = ({
         </div>
         <div className="w-full flex flex-col mb-2">
           <h1 className="font-bold text-[26px]">{userProfile.fullName}</h1>
-          <span className=" font-semibold text-[#36474F]">
-            @{userProfile.username}
-          </span>
+          {/* <span className=" font-semibold text-[#36474F]">
+            @{userProfile.username} // API doesnt return username
+          </span> */}
         </div>
         <div className="flex flex-col gap-2.5 mb-5">
           <div className="flex flex-col gap-2.5">
